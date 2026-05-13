@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>😍😍Login | TravelMate</title>
+
+    <link rel="icon" type="image/png" href="/images/logo.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/auth.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <div class="login-card">
+
+        <!-- LEFT SIDE -->
+
+        <div class="login-left">
+
+            <div class="logo-box">
+
+                <img src="/images/logo.jpg" alt="logo">
+
+                <h2>TravelMate</h2>
+
+            </div>
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Login to continue your premium
+                travel booking journey.
+            </p>
+
+            <div class="login-features">
+
+                <span>
+                    <i class="fa-solid fa-plane"></i>
+                    Flights
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-hotel"></i>
+                    Hotels
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    Trips
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="login-right">
+
+            <div class="icon-circle">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+            </div>
+
+            <h1>Login</h1>
+
+            <p class="subtitle">
+                Access your TravelMate dashboard
+            </p>
+
+            <!-- ERROR MESSAGE -->
+
+            <div class="error"
+                 th:if="${error}"
+                 th:text="${error}">
+            </div>
+
+            <!-- LOGOUT SUCCESS -->
+
+            <div class="success"
+                 th:if="${param.logout}">
+
+                Logout successful
+
+            </div>
+
+            <!-- REGISTER SUCCESS -->
+
+            <div class="success"
+                 th:if="${success}"
+                 th:text="${success}">
+            </div>
+
+            <!-- LOGIN FORM -->
+
+            <form action="/login"
+                  method="post"
+                  class="premium-form">
+
+                <div class="input-group">
+
+                    <label>Username</label>
+
+                    <input type="text"
+                           name="username"
+                           placeholder="Enter username"
+                           required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input type="password"
+                           name="password"
+                           placeholder="Enter password"
+                           required>
+
+                </div>
+
+                <button type="submit"
+                        class="submit-btn">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <p class="bottom-text">
+
+                New user?
+
+                <a href="/register">
+                    Create account
+                </a>
+				
+				<a href="/" class="home-btn">
+				    <i class="fa-solid fa-house"></i>
+				    Back To Home
+				</a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PAGE LOADER -->
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-card">
+
+        <img src="/images/logo.jpg"
+             alt="TravelMate">
+
+        <div class="loader-plane">
+            ✈
+        </div>
+
+        <h2>TravelMate</h2>
+
+        <p>
+            Preparing your journey...
+        </p>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+    const loader =
+        document.getElementById("pageLoader");
+
+    window.addEventListener("load", function () {
+
+        setTimeout(() => {
+
+            loader.classList.add("hide-loader");
+
+        }, 500);
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            const href =
+                this.getAttribute("href");
+
+            if (!href ||
+                href.startsWith("#") ||
+                href.startsWith("javascript")) {
+
+                return;
+            }
+
+            e.preventDefault();
+
+            loader.classList.remove("hide-loader");
+
+            setTimeout(() => {
+
+                window.location.href = href;
+
+            }, 900);
+        });
+    });
+
+    document.querySelectorAll("form").forEach(form => {
+
+        form.addEventListener("submit", function () {
+
+            loader.classList.remove("hide-loader");
+
+        });
+    });
+
+</script>
+
+</body>
+</html>

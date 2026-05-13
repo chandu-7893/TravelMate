@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Travel Packages | TravelMate</title>
+
+    <link rel="stylesheet" href="/css/packages.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-card">
+
+        <img src="/images/logo.jpg" alt="TravelMate">
+
+        <div class="loader-plane">✈</div>
+
+        <h2>TravelMate</h2>
+
+        <p>Preparing your premium packages...</p>
+
+    </div>
+
+</div>
+
+<!-- PAGE -->
+
+<div class="package-page">
+
+    <!-- TOP -->
+
+    <div class="top-bar">
+
+        <div>
+
+            <span class="small-title">
+                Premium Travel Packages
+            </span>
+
+            <h1>Available Packages</h1>
+
+        </div>
+
+        <a href="/dashboard" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </a>
+
+    </div>
+
+    <!-- USER DETAILS -->
+
+    <div class="trip-info">
+
+        <div class="info-card">
+            <h3>Destination</h3>
+            <p th:text="${destination}">Goa</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Travel Date</h3>
+            <p th:text="${travelDate}">2026-05-15</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Travelers</h3>
+            <p th:text="${travelers}">2</p>
+        </div>
+
+    </div>
+
+    <!-- PACKAGE GRID -->
+
+    <div class="package-grid">
+
+        <!-- PACKAGE 1 -->
+
+        <div class="package-card">
+
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="package-content">
+
+                <div class="package-tag">
+                    Bestseller
+                </div>
+
+                <h2>Luxury Goa Escape</h2>
+
+                <p>
+                    3 Nights • Beach Resort • Free Breakfast • Water Sports
+                </p>
+
+                <div class="price-section">
+
+                    <span class="price">₹14,999</span>
+
+                    <span class="old-price">₹18,999</span>
+
+                </div>
+
+                <a href="/payment" class="book-btn">
+                    Book Package
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- PACKAGE 2 -->
+
+        <div class="package-card">
+
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="package-content">
+
+                <div class="package-tag blue-tag">
+                    Adventure
+                </div>
+
+                <h2>Manali Snow Trip</h2>
+
+                <p>
+                    5 Nights • Mountain View • Campfire • Trekking
+                </p>
+
+                <div class="price-section">
+
+                    <span class="price">₹19,999</span>
+
+                    <span class="old-price">₹25,999</span>
+
+                </div>
+
+                <a href="/payment" class="book-btn">
+                    Book Package
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- PACKAGE 3 -->
+
+        <div class="package-card">
+
+            <img src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="package-content">
+
+                <div class="package-tag green-tag">
+                    Premium
+                </div>
+
+                <h2>Kerala Backwaters</h2>
+
+                <p>
+                    Houseboat • Luxury Stay • Nature View • Spa Included
+                </p>
+
+                <div class="price-section">
+
+                    <span class="price">₹24,999</span>
+
+                    <span class="old-price">₹31,999</span>
+
+                </div>
+
+                <a href="/payment" class="book-btn">
+                    Book Package
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    const loader = document.getElementById("pageLoader");
+
+    window.addEventListener("load", function () {
+
+        setTimeout(() => {
+            loader.classList.add("hide-loader");
+        }, 700);
+
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            const href = this.getAttribute("href");
+
+            if (!href || href.startsWith("#")) {
+                return;
+            }
+
+            e.preventDefault();
+
+            loader.classList.remove("hide-loader");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 700);
+
+        });
+
+    });
+
+</script>
+
+</body>
+
+</html>

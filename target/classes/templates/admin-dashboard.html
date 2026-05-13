@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>🎈Admin Dashboard</title>
+
+	<link rel="stylesheet" href="/css/admin.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="dash-body admin-page">
+
+	<!-- SIDEBAR -->
+
+	<aside class="sidebar">
+
+		<h2>TravelMate</h2>
+
+		<a href="/admin" class="active">
+			<i class="fa-solid fa-user-shield"></i>
+			Admin
+		</a>
+
+		<a href="/dashboard">
+			<i class="fa-solid fa-house"></i>
+			User Dashboard
+		</a>
+
+		<a href="/tour">
+			<i class="fa-solid fa-plane-departure"></i>
+			Book Tour
+		</a>
+
+		<a href="/history">
+			<i class="fa-solid fa-clock-rotate-left"></i>
+			My History
+		</a>
+
+		<a href="/logout">
+			<i class="fa-solid fa-right-from-bracket"></i>
+			Logout
+		</a>
+
+	</aside>
+
+	<!-- MAIN -->
+
+	<main class="main-content admin-main">
+
+		<!-- HERO -->
+
+		<section class="admin-hero">
+
+			<span class="tour-tag">
+				🔥 Admin Control Panel
+			</span>
+
+			<h1>Admin Dashboard</h1>
+
+			<p>
+				Manage customer bookings, payment tracking,
+				invoices and complete travel management.
+			</p>
+
+		</section>
+
+		<!-- STATS -->
+
+		<section class="admin-stats">
+
+			<div class="admin-stat-card">
+
+				<div class="admin-icon blue">
+					<i class="fa-solid fa-ticket"></i>
+				</div>
+
+				<div>
+					<h3 th:text="${totalBookings}">0</h3>
+					<p>Total Bookings</p>
+				</div>
+
+			</div>
+
+			<div class="admin-stat-card">
+
+				<div class="admin-icon green">
+					<i class="fa-solid fa-circle-check"></i>
+				</div>
+
+				<div>
+					<h3>PAID</h3>
+					<p>Payment Tracking</p>
+				</div>
+
+			</div>
+
+			<div class="admin-stat-card">
+
+				<div class="admin-icon purple">
+					<i class="fa-solid fa-file-pdf"></i>
+				</div>
+
+				<div>
+					<h3>PDF</h3>
+					<p>Invoice Enabled</p>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- TABLE -->
+
+		<section class="admin-table-card">
+
+			<div class="table-header">
+
+				<h2>All Customer Bookings</h2>
+
+			</div>
+
+			<div class="table-card">
+
+				<table>
+
+					<thead>
+
+						<tr>
+							<th>ID</th>
+							<th>User</th>
+							<th>Place</th>
+							<th>Vehicle</th>
+							<th>Hotel</th>
+							<th>Days</th>
+							<th>Final</th>
+							<th>Payment</th>
+							<th>Txn ID</th>
+							<th>Action</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr th:each="b : ${bookings}">
+
+							<td th:text="${b.id}"></td>
+
+							<td th:text="${b.username}"></td>
+
+							<td th:text="${b.place}"></td>
+
+							<td th:text="${b.vehicle}"></td>
+
+							<td th:text="${b.hotel}"></td>
+
+							<td th:text="${b.days}"></td>
+
+							<td>
+								₹ <span th:text="${b.finalAmount}"></span>
+							</td>
+
+							<td>
+
+								<span th:text="${b.paymentStatus}"
+									th:classappend="${b.paymentStatus == 'PAID'} ? 'status paid' : 'status pending'">
+								</span>
+
+							</td>
+
+							<td th:text="${b.transactionId}"></td>
+
+							<td>
+
+								<a href="javascript:void(0)" th:attr="data-url=@{'/admin/delete/' + ${b.id}}"
+									onclick="openDeleteModal(this)" class="delete-btn">
+
+									Delete
+
+								</a>
+
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<!-- PREMIUM DELETE MODAL -->
+
+	<div id="deleteModal" class="delete-modal">
+
+		<div class="delete-box">
+
+			<div class="delete-icon">
+				🗑️
+			</div>
+
+			<h2>Delete Booking?</h2>
+
+			<p>
+				This booking record will be permanently removed.
+			</p>
+
+			<div class="delete-actions">
+
+				<button onclick="closeDeleteModal()" class="cancel-modal-btn">
+
+					Cancel
+
+				</button>
+
+				<a id="confirmDeleteBtn" href="#" class="confirm-delete-btn">
+
+					Delete
+
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SCRIPT -->
+
+	<script>
+
+		function openDeleteModal(element) {
+
+			const url = element.getAttribute("data-url");
+
+			document.getElementById("confirmDeleteBtn").href = url;
+
+			document.getElementById("deleteModal").style.display = "flex";
+		}
+
+		function closeDeleteModal() {
+
+			document.getElementById("deleteModal").style.display = "none";
+		}
+
+	</script>
+	<div class="page-loader" id="pageLoader">
+		<div class="loader-card">
+			<img src="/images/logo.jpg" alt="TravelMate">
+			<div class="loader-plane">✈</div>
+			<h2>TravelMate</h2>
+			<p>Preparing your journey...</p>
+		</div>
+	</div>
+
+	<script>
+		const loader = document.getElementById("pageLoader");
+
+		window.addEventListener("load", function () {
+			setTimeout(() => {
+				loader.classList.add("hide-loader");
+			}, 500);
+		});
+
+		document.querySelectorAll("a").forEach(link => {
+			link.addEventListener("click", function (e) {
+				const href = this.getAttribute("href");
+
+				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+					return;
+				}
+
+				e.preventDefault();
+				loader.classList.remove("hide-loader");
+
+				setTimeout(() => {
+					window.location.href = href;
+				}, 900);
+			});
+		});
+
+		document.querySelectorAll("form").forEach(form => {
+			form.addEventListener("submit", function () {
+				loader.classList.remove("hide-loader");
+			});
+		});
+	</script>
+
+</body>
+
+</html>

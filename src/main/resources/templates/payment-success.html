@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Success | TravelMate</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/payment-success.css}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="success-page">
+
+    <!-- SUCCESS CARD -->
+
+    <div class="success-card">
+
+        <!-- ICON -->
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+        <!-- TITLE -->
+
+        <h1>
+            Payment Successful 🎉
+        </h1>
+
+        <p class="success-text">
+
+            Your premium TravelMate booking
+            has been confirmed successfully.
+
+        </p>
+
+        <!-- TRANSACTION -->
+
+        <div class="transaction-box">
+
+            <span>Transaction ID</span>
+
+            <b th:text="${booking.transactionId}">
+                TXN987654321
+            </b>
+
+        </div>
+
+        <!-- BOOKING SUMMARY -->
+
+        <div class="summary-box">
+
+            <div class="summary-row">
+
+                <span>Destination</span>
+
+                <b th:text="${booking.place}">
+                    Goa
+                </b>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Hotel</span>
+
+                <b th:text="${booking.hotel}">
+                    Premium Resort
+                </b>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Vehicle</span>
+
+                <b th:text="${booking.vehicle}">
+                    Flight
+                </b>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Days</span>
+
+                <b th:text="${booking.days}">
+                    3
+                </b>
+
+            </div>
+
+            <div class="summary-row total">
+
+                <span>Total Paid</span>
+
+                <b th:text="'₹' + ${booking.finalAmount}">
+                    ₹6000
+                </b>
+
+            </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="button-group">
+
+            <a href="/bill/download"
+               class="download-btn">
+
+                <i class="fa-solid fa-file-arrow-down"></i>
+
+                Download Ticket
+
+            </a>
+
+            <a href="/dashboard"
+               class="dashboard-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<a href="/ticket/download" class="download-ticket-btn">
+    <i class="fa-solid fa-qrcode"></i>
+    Download QR Ticket
+</a>
+
+</body>
+
+</html>

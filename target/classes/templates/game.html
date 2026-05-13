@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<title>🎯TravelMate Game Zone</title>
+
+	<link rel="stylesheet" href="/css/game.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+	<!-- SIDEBAR -->
+
+	<aside class="sidebar">
+
+		<div>
+
+			<h2>TravelMate</h2>
+
+			<a href="/dashboard">
+				<i class="fa-solid fa-house"></i>
+				Dashboard
+			</a>
+
+			<a href="/tour">
+				<i class="fa-solid fa-plane-departure"></i>
+				Book Tour
+			</a>
+
+			<a href="/history">
+				<i class="fa-solid fa-clock-rotate-left"></i>
+				History
+			</a>
+
+		</div>
+
+		<a href="/logout">
+			<i class="fa-solid fa-right-from-bracket"></i>
+			Logout
+		</a>
+
+	</aside>
+
+	<!-- MAIN -->
+
+	<main class="game-main">
+
+		<!-- HERO -->
+
+		<section class="game-hero">
+
+			<span class="tour-tag">
+				🎮 Play & Win
+			</span>
+
+			<h1>
+				Unlock Premium Discounts
+			</h1>
+
+			<p>
+				Play exciting mini games and win up to ₹1000 OFF
+				on your dream travel booking.
+			</p>
+
+		</section>
+
+		<!-- GAME BOX -->
+
+		<div class="game-box">
+
+			<div class="question-card">
+
+				<h2>
+					Choose Your Challenge
+				</h2>
+
+				<p>
+					Select one game below and answer correctly
+					to unlock discount rewards.
+				</p>
+
+			</div>
+
+			<!-- GAME OPTIONS -->
+
+			<div class="game-options premium-games">
+
+				<!-- WORD -->
+
+				<label class="game-option word-card">
+
+					<input type="radio" name="gameSelect" value="word" onclick="showQuestion('word')">
+
+					<div class="game-inner">
+
+						<div class="game-big-icon">
+							🔤
+						</div>
+
+						<h3>Word Puzzle</h3>
+
+						<p>
+							Unscramble the hidden travel word.
+						</p>
+
+						<span>
+							₹500 OFF
+						</span>
+
+					</div>
+
+				</label>
+
+				<!-- NUMBER -->
+
+				<label class="game-option number-card">
+
+					<input type="radio" name="gameSelect" value="number" onclick="showQuestion('number')">
+
+					<div class="game-inner">
+
+						<div class="game-big-icon">
+							🔢
+						</div>
+
+						<h3>Math Rush</h3>
+
+						<p>
+							Solve the quick math challenge.
+						</p>
+
+						<span>
+							₹700 OFF
+						</span>
+
+					</div>
+
+				</label>
+
+				<!-- MEMORY -->
+
+				<label class="game-option memory-card">
+
+					<input type="radio" name="gameSelect" value="memory" onclick="showQuestion('memory')">
+
+					<div class="game-inner">
+
+						<div class="game-big-icon">
+							🧠
+						</div>
+
+						<h3>Memory Code</h3>
+
+						<p>
+							Remember the hidden booking code.
+						</p>
+
+						<span>
+							₹1000 OFF
+						</span>
+
+					</div>
+
+				</label>
+
+			</div>
+
+			<!-- FORM -->
+
+			<form action="/game" method="post" class="answer-form">
+
+				<!-- IMPORTANT -->
+
+				<input type="hidden" id="gameType" name="game">
+
+				<div class="timer-box">
+					⏳ Time Left:
+					<span id="timer">30</span>
+					sec
+				</div>
+
+				<div class="question-card">
+
+					<h2 id="questionTitle">
+						Select a game to start
+					</h2>
+
+					<p id="questionText">
+						Your challenge will appear here...
+					</p>
+
+				</div>
+
+				<input type="text" id="answerInput" name="answer" placeholder="Enter your answer" required>
+
+				<button type="submit" class="primary-btn">
+					Submit Answer 🚀
+				</button>
+
+			</form>
+
+		</div>
+
+	</main>
+
+	<!-- ALERT -->
+
+	<div id="customAlert" class="custom-alert">
+
+		<div class="alert-box">
+
+			<p id="alertMessage"></p>
+
+			<button onclick="closeAlert()">
+				OK
+			</button>
+
+		</div>
+
+	</div>
+
+	<!-- SUCCESS -->
+
+	<div id="successPopup" class="success-popup">
+
+		<div class="success-box">
+
+			<div class="success-icon">
+				🎉
+			</div>
+
+			<h2>
+				Correct Answer!
+			</h2>
+
+			<p>
+				Discount unlocked successfully.
+			</p>
+
+			<div class="loader-bar">
+				<span></span>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SCRIPT -->
+	<script>
+		let timer = 30;
+		let timerInterval;
+
+		function showAlert(message) {
+			document.getElementById("alertMessage").innerText = message;
+			document.getElementById("customAlert").style.display = "flex";
+		}
+
+		function closeAlert() {
+			document.getElementById("customAlert").style.display = "none";
+		}
+
+		function showQuestion(type) {
+			document.getElementById("gameType").value = type;
+			document.getElementById("answerInput").value = "";
+
+			if (type === "word") {
+				document.getElementById("questionTitle").innerText = "Word Puzzle 🔤";
+				document.getElementById("questionText").innerText = "Unscramble this word: AVRLET";
+			}
+
+			else if (type === "number") {
+				document.getElementById("questionTitle").innerText = "Math Rush 🔢";
+				document.getElementById("questionText").innerText = "Solve this: 15 + 25";
+			}
+
+			else if (type === "memory") {
+				document.getElementById("questionTitle").innerText = "Memory Challenge 🧠";
+				document.getElementById("questionText").innerText = "Remember this code: TRIP2026";
+			}
+
+			startTimer();
+		}
+
+		function startTimer() {
+			clearInterval(timerInterval);
+			timer = 30;
+			document.getElementById("timer").innerText = timer;
+
+			timerInterval = setInterval(() => {
+				timer--;
+				document.getElementById("timer").innerText = timer;
+
+				if (timer <= 0) {
+					clearInterval(timerInterval);
+					showAlert("⏰ Time Up!");
+				}
+			}, 1000);
+		}
+
+		document.querySelector(".answer-form").addEventListener("submit", function (e) {
+			const game = document.getElementById("gameType").value;
+			const answer = document.getElementById("answerInput").value.trim();
+
+			if (!game) {
+				e.preventDefault();
+				showAlert("⚠️ Please select a game!");
+				return;
+			}
+
+			if (answer === "") {
+				e.preventDefault();
+				showAlert("⚠️ Please enter your answer!");
+				return;
+			}
+
+			// Do NOT stop correct submit
+			// Backend will check answer and redirect to /payment
+		});
+	</script>
+
+	<div class="page-loader" id="pageLoader">
+		<div class="loader-card">
+			<img src="/images/logo.jpg" alt="TravelMate">
+			<div class="loader-plane">✈</div>
+			<h2>TravelMate</h2>
+			<p>Preparing your journey...</p>
+		</div>
+	</div>
+
+	<script>
+		const loader = document.getElementById("pageLoader");
+
+		window.addEventListener("load", function () {
+			setTimeout(() => {
+				loader.classList.add("hide-loader");
+			}, 500);
+		});
+
+		document.querySelectorAll("a").forEach(link => {
+			link.addEventListener("click", function (e) {
+				const href = this.getAttribute("href");
+
+				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+					return;
+				}
+
+				e.preventDefault();
+				loader.classList.remove("hide-loader");
+
+				setTimeout(() => {
+					window.location.href = href;
+				}, 900);
+			});
+		});
+
+		document.querySelectorAll("form").forEach(form => {
+			form.addEventListener("submit", function () {
+				loader.classList.remove("hide-loader");
+			});
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>🚂🚂TravelMate Dashboard</title>
+
+	<link rel="stylesheet" th:href="@{/css/dashboard.css}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+		rel="stylesheet">
+
+</head>
+
+<body>
+	<a href="/history">
+	    Booking History
+	</a>
+	<div class="page-loader" id="pageLoader">
+		<div class="loader-card">
+			<div class="plane-loader">
+				<i class="fa-solid fa-plane"></i>
+			</div>
+
+			<h2>TravelMate</h2>
+			<p>Preparing your premium journey...</p>
+
+			<div class="loading-line">
+				<span></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="dashboard">
+
+		<!-- SIDEBAR -->
+
+		<aside class="sidebar">
+
+			<div>
+
+				<h1 class="logo">
+					Travel<span>Mate</span>
+				</h1>
+
+				<nav>
+
+					<a href="/dashboard" class="active">
+						<i class="fa-solid fa-house"></i>
+						Dashboard
+					</a>
+
+					<a href="/tour">
+						<i class="fa-solid fa-plane-departure"></i>
+						Book Tour
+					</a>
+
+					<a href="/history">
+						<i class="fa-solid fa-clock-rotate-left"></i>
+						History
+					</a>
+
+					<a href="/payment">
+						<i class="fa-solid fa-credit-card"></i>
+						Payment
+					</a>
+
+				</nav>
+
+			</div>
+
+			<a href="/logout" class="logout">
+
+				<i class="fa-solid fa-right-from-bracket"></i>
+
+				Logout
+
+			</a>
+
+		</aside>
+
+		<!-- MAIN CONTENT -->
+
+		<main class="main-content">
+
+			<!-- HERO -->
+
+			<section class="hero">
+
+				<div class="overlay"></div>
+
+				<div class="hero-content">
+
+					<!-- TAG -->
+
+					<div class="tag">
+						✨ Luxury Travel Experience
+					</div>
+
+					<!-- PROFILE SECTION -->
+
+					<div class="profile-section">
+
+						<!-- USER IMAGE -->
+
+						<img th:src="@{'/user/image/' + ${username}}" alt="profile">
+
+						<!-- USER DETAILS -->
+
+						<div>
+
+							<h2 class="welcome-text">
+
+								Welcome Back,
+
+								<span th:text="${username}">
+									Chandu
+								</span> 👋
+
+							</h2>
+
+							<!-- EMAIL -->
+
+							<p class="email-text" th:text="${email}">
+
+								sample@gmail.com
+
+							</p>
+
+						</div>
+
+					</div>
+
+					<!-- HERO TEXT -->
+
+					<p class="hero-text">
+
+						Discover premium destinations,
+						luxury hotels and unforgettable adventures.
+
+					</p>
+
+					<!-- BUTTONS -->
+
+					<div class="hero-buttons">
+
+						<a href="/tour" class="btn primary-btn">
+
+							Book New Trip
+
+						</a>
+
+						<a href="/history" class="btn secondary-btn">
+
+							View History
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<!-- STATS SECTION -->
+
+			<section class="stats-section">
+
+			    <a href="/destinations" class="card clickable-card">
+			        <div class="icon blue">
+			            <i class="fa-solid fa-plane"></i>
+			        </div>
+			        <div>
+			            <h3>25+</h3>
+			            <p>Explore Destinations</p>
+			        </div>
+			    </a>
+
+				<a href="/tour" class="card clickable-card">
+
+				    <div class="icon purple">
+				        <i class="fa-solid fa-ticket"></i>
+				    </div>
+
+				    <div class="card-details">
+
+				        <h3>₹2500 Saved</h3>
+
+				        <p class="main-text">
+				            Discounts You Claimed
+				        </p>
+
+				        <div class="discount-history">
+
+				            <div class="discount-item">
+				                <span>Goa Package</span>
+				                <strong>- ₹1000</strong>
+				            </div>
+
+				            <div class="discount-item">
+				                <span>Manali Trip</span>
+				                <strong>- ₹500</strong>
+				            </div>
+
+				            <div class="discount-item">
+				                <span>Kerala Resort</span>
+				                <strong>- ₹1000</strong>
+				            </div>
+
+				        </div>
+
+				    </div>
+
+				</a>	
+
+				<a href="/tour" class="card clickable-card">
+
+				    <div class="icon green">
+				        <i class="fa-solid fa-hotel"></i>
+				    </div>
+
+				    <div class="card-details">
+
+				        <h3>Premium Hotels</h3>
+
+				        <p class="main-text">
+				            Choose Hotel Package
+				        </p>
+
+				        <div class="hotel-list">
+
+				            <div class="hotel-item">
+				                <span>Luxury Resort</span>
+				                <strong>5★</strong>
+				            </div>
+
+				            <div class="hotel-item">
+				                <span>Beach Hotel</span>
+				                <strong>Sea View</strong>
+				            </div>
+
+				            <div class="hotel-item">
+				                <span>Mountain Stay</span>
+				                <strong>Hill View</strong>
+				            </div>
+
+				        </div>
+
+				    </div>
+
+				</a>
+
+				<a href="/tour" class="card clickable-card">
+
+				    <div class="icon orange">
+				        <i class="fa-solid fa-file"></i>
+				    </div>
+
+				    <div class="card-details">
+
+				        <h3>PDF Reports</h3>
+
+				        <p class="main-text">
+				            Download Invoice
+				        </p>
+
+				        <div class="invoice-list">
+
+				            <div class="invoice-item">
+				                <span>Goa Booking</span>
+				                <strong>PDF</strong>
+				            </div>
+
+				            <div class="invoice-item">
+				                <span>Kerala Package</span>
+				                <strong>Invoice</strong>
+				            </div>
+
+				            <div class="invoice-item">
+				                <span>Manali Resort</span>
+				                <strong>Receipt</strong>
+				            </div>
+
+				        </div>
+
+				    </div>
+
+				</a>
+
+			</section>
+		</main>
+
+	</div>
+
+
+	<script>
+		window.addEventListener("load", function () {
+			const loader = document.getElementById("pageLoader");
+
+			setTimeout(function () {
+				loader.classList.add("hide");
+			}, 900);
+		});
+	</script>
+
+</body>
+
+</html>

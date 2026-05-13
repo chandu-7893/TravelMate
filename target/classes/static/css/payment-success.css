@@ -1,0 +1,327 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.7)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    color:white;
+}
+
+/* PAGE */
+
+.success-page{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CARD */
+
+.success-card{
+
+    width:100%;
+    max-width:700px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:35px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
+
+    animation:cardShow 1s ease;
+}
+
+/* SUCCESS ICON */
+
+.success-icon{
+
+    width:120px;
+    height:120px;
+
+    margin:auto auto 30px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #00c853,
+        #00e676
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:55px;
+
+    box-shadow:
+        0 0 40px rgba(0,230,118,.5);
+
+    animation:pulse 1.8s infinite;
+}
+
+.success-icon i{
+    color:white;
+}
+
+/* TITLE */
+
+.success-card h1{
+
+    font-size:42px;
+
+    margin-bottom:18px;
+}
+
+/* TEXT */
+
+.success-text{
+
+    color:#dbeafe;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    margin-bottom:35px;
+}
+
+/* TRANSACTION */
+
+.transaction-box{
+
+    padding:18px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.1);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    margin-bottom:35px;
+}
+
+.transaction-box span{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    margin-bottom:8px;
+}
+
+.transaction-box b{
+
+    font-size:22px;
+
+    color:#35c8ff;
+}
+
+/* SUMMARY */
+
+.summary-box{
+
+    background:rgba(0,0,0,.22);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    margin-bottom:35px;
+}
+
+.summary-row{
+
+    display:flex;
+    justify-content:space-between;
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.summary-row span{
+    color:#cbd5e1;
+}
+
+.summary-row b{
+    color:white;
+}
+
+.summary-row.total{
+
+    border-bottom:none;
+
+    font-size:22px;
+}
+
+.summary-row.total b{
+
+    background:linear-gradient(
+        135deg,
+        #35c8ff,
+        #7d2ae8
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* BUTTONS */
+
+.button-group{
+
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.button-group a{
+
+    text-decoration:none;
+
+    padding:16px 28px;
+
+    border-radius:18px;
+
+    font-size:16px;
+    font-weight:700;
+
+    transition:.4s;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* DOWNLOAD */
+
+.download-btn{
+
+    background:linear-gradient(
+        135deg,
+        #35c8ff,
+        #7d2ae8
+    );
+
+    color:white;
+
+    box-shadow:
+        0 15px 35px rgba(53,200,255,.35);
+}
+
+/* DASHBOARD */
+
+.dashboard-btn{
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.14);
+}
+
+.button-group a:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+}
+
+/* ANIMATION */
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes cardShow{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .success-card{
+        padding:35px 25px;
+    }
+
+    .success-card h1{
+        font-size:32px;
+    }
+
+    .success-icon{
+        width:95px;
+        height:95px;
+        font-size:42px;
+    }
+}
+
+
+.download-ticket-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding: 14px 30px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #00e676, #00bcd4);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 15px 35px rgba(0, 230, 118, 0.35);
+    transition: 0.3s ease;
+}
+
+.download-ticket-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(0, 188, 212, 0.45);
+}

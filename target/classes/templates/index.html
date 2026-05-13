@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>🫠🫠TravelMate</title>
+
+	<link rel="icon" type="image/png" href="/images/logo.jpg">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="/css/indexStyle.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+	<!-- ========= BACKGROUND EFFECTS ========= -->
+
+	<div class="bg-circle c1"></div>
+	<div class="bg-circle c2"></div>
+	<div class="bg-circle c3"></div>
+
+	<!-- ========= VEHICLES ========= -->
+
+	<div class="vehicles">
+
+		<img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="plane">
+
+		<img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" class="train">
+
+		<img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" class="bus">
+
+	</div>
+
+	<!-- ========= NAVBAR ========= -->
+
+	<nav>
+
+		<div class="logo">
+
+			<img src="/images/logo.jpg">
+
+			<span>TravelMate</span>
+
+		</div>
+
+		<div class="nav-links">
+
+			<a href="/">Home</a>
+
+			<a href="/login">Login</a>
+
+			<a href="/register" class="register-btn">
+				Register
+			</a>
+
+		</div>
+
+	</nav>
+
+	<!-- ========= HERO ========= -->
+
+	<section class="hero">
+
+		<!-- LEFT -->
+
+		<div class="left">
+
+			<span class="tag">
+				✈ Explore • Travel • Enjoy
+			</span>
+
+			<h1>
+				Discover The World
+				With <span>TravelMate</span>
+			</h1>
+
+			<p>
+				Book luxury hotels, flights, trains and buses
+				with premium discounts and unforgettable travel experiences.
+			</p>
+
+			<!-- SEARCH -->
+
+			<form class="search-box" action="/packages" method="get">
+
+				<input type="text" placeholder="Search destination..." name="destination" required>
+
+				<input type="date" name="travelDate" class="premium-date" required>
+
+				<select name="travelers">
+
+					<option>1 Traveler</option>
+					<option>2 Travelers</option>
+					<option>3 Travelers</option>
+					<option>4 Travelers</option>
+
+				</select>
+
+				<button type="submit">
+					Search Trip 🔍
+				</button>
+
+			</form>
+
+			<!-- BUTTONS -->
+
+			<div class="buttons">
+
+				<a href="/register" class="start-btn" onclick="startTravelAnimation(event, '/register')">
+
+					Get Started 🚀
+
+				</a>
+
+				<a href="/login" class="login-btn" onclick="startTravelAnimation(event, '/login')">
+
+					Login
+
+				</a>
+
+			</div>
+
+			<!-- STATS -->
+
+			<div class="stats">
+
+				<div class="stat-card">
+
+					<h2>500+</h2>
+					<p>Luxury Hotels</p>
+
+				</div>
+
+				<div class="stat-card">
+
+					<h2>120+</h2>
+					<p>Flight Routes</p>
+
+				</div>
+
+				<div class="stat-card">
+
+					<h2>50K+</h2>
+					<p>Happy Travelers</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- RIGHT -->
+
+		<div class="right">
+
+			<div class="package-card">
+
+				<div class="shine"></div>
+
+				<span class="popular">
+					🔥 Popular Package
+				</span>
+
+				<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+
+				<div class="package-content">
+
+					<h2>Goa Beach Paradise</h2>
+
+					<p>
+						Flight + Hotel + Food + Fun Activities
+					</p>
+
+					<div class="price-box">
+
+						<h1>₹9,999</h1>
+
+						<span>3 Days / 2 Nights</span>
+
+					</div>
+
+					<a href="/register" class="book-btn" onclick="startTravelAnimation(event, '/register')">
+
+						Book Now ✨
+
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<!-- ========= OVERLAY ========= -->
+
+	<div class="travel-overlay" id="travelOverlay">
+
+		<div class="overlay-road"></div>
+
+		<img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="overlay-plane">
+
+		<h1>Preparing Your Journey...</h1>
+
+	</div>
+
+	<!-- ========= SCRIPT ========= -->
+
+	<script>
+
+		function startTravelAnimation(event, url) {
+
+			event.preventDefault();
+
+			const overlay =
+				document.getElementById("travelOverlay");
+
+			overlay.classList.add("active");
+
+			setTimeout(() => {
+
+				window.location.href = url;
+
+			}, 2500);
+		}
+
+		window.addEventListener("pageshow", function () {
+
+			const overlay =
+				document.getElementById("travelOverlay");
+
+			overlay.classList.remove("active");
+		});
+
+	</script>
+
+	<div class="page-loader" id="pageLoader">
+		<div class="loader-card">
+			<img src="/images/logo.jpg" alt="TravelMate">
+			<div class="loader-plane">✈</div>
+			<h2>TravelMate</h2>
+			<p>Preparing your journey...</p>
+		</div>
+	</div>
+
+	<script>
+		const loader = document.getElementById("pageLoader");
+
+		window.addEventListener("load", function () {
+			setTimeout(() => {
+				loader.classList.add("hide-loader");
+			}, 500);
+		});
+
+		document.querySelectorAll("a").forEach(link => {
+			link.addEventListener("click", function (e) {
+				const href = this.getAttribute("href");
+
+				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+					return;
+				}
+
+				e.preventDefault();
+				loader.classList.remove("hide-loader");
+
+				setTimeout(() => {
+					window.location.href = href;
+				}, 900);
+			});
+		});
+
+		document.querySelectorAll("form").forEach(form => {
+			form.addEventListener("submit", function () {
+				loader.classList.remove("hide-loader");
+			});
+		});
+	</script>
+
+</body>
+
+</html>

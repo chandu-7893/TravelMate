@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payment | TravelMate</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/payment.css}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="payment-page">
+
+    <!-- BACK BUTTON -->
+
+    <a href="/dashboard" class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back
+
+    </a>
+
+    <!-- PAYMENT CARD -->
+
+    <div class="payment-card">
+
+        <!-- LEFT SIDE -->
+
+        <div class="payment-left">
+
+            <span class="tag">
+                ✨ Secure Payment
+            </span>
+
+            <h1>
+                Complete Your Booking
+            </h1>
+
+            <p>
+                Pay safely and confirm your premium
+                TravelMate journey.
+            </p>
+
+            <!-- BOOKING SUMMARY -->
+
+            <div class="summary-box">
+
+                <div class="summary-header">
+
+                    <i class="fa-solid fa-plane-departure"></i>
+
+                    <div>
+
+                        <h3>Booking Summary</h3>
+
+                        <p>Your selected premium package</p>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <span>Destination</span>
+                    <b th:text="${booking.place}">
+                        Goa
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Hotel</span>
+                    <b th:text="${booking.hotel}">
+                        Premium Resort
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Vehicle</span>
+                    <b th:text="${booking.vehicle}">
+                        Flight
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Days</span>
+                    <b th:text="${booking.days}">
+                        3
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Place Price</span>
+                    <b th:text="'₹' + ${booking.placePrice}">
+                        ₹3000
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Hotel Price</span>
+                    <b th:text="'₹' + ${booking.hotelPrice}">
+                        ₹2000
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Vehicle Price</span>
+                    <b th:text="'₹' + ${booking.vehiclePrice}">
+                        ₹1500
+                    </b>
+                </div>
+
+                <div class="row">
+                    <span>Discount</span>
+
+                    <b style="color:#35c8ff;"
+                       th:text="'₹' + ${booking.discount}">
+
+                        ₹500
+
+                    </b>
+                </div>
+
+                <div class="row total">
+
+                    <span>Total Amount</span>
+
+                    <b th:text="'₹' + ${booking.finalAmount}">
+                        ₹6000
+                    </b>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="payment-right">
+
+            <h2>Choose Payment Method</h2>
+
+            <form action="/payment"
+                  method="post">
+
+                <!-- PAYMENT OPTIONS -->
+
+                <div class="payment-options">
+
+                    <!-- VISA -->
+
+                    <label class="payment-option">
+
+                        <input type="radio"
+                               name="paymentMethod"
+                               value="VISA"
+                               checked>
+
+                        <div class="payment-box">
+
+                            <i class="fa-brands fa-cc-visa"></i>
+
+                            <span>Visa</span>
+
+                        </div>
+
+                    </label>
+
+                    <!-- MASTERCARD -->
+
+                    <label class="payment-option">
+
+                        <input type="radio"
+                               name="paymentMethod"
+                               value="MASTERCARD">
+
+                        <div class="payment-box">
+
+                            <i class="fa-brands fa-cc-mastercard"></i>
+
+                            <span>MasterCard</span>
+
+                        </div>
+
+                    </label>
+
+                    <!-- GPAY -->
+
+                    <label class="payment-option">
+
+                        <input type="radio"
+                               name="paymentMethod"
+                               value="GPAY">
+
+                        <div class="payment-box">
+
+                            <i class="fa-brands fa-google-pay"></i>
+
+                            <span>GPay</span>
+
+                        </div>
+
+                    </label>
+
+                    <!-- PAYPAL -->
+
+                    <label class="payment-option">
+
+                        <input type="radio"
+                               name="paymentMethod"
+                               value="PAYPAL">
+
+                        <div class="payment-box">
+
+                            <i class="fa-brands fa-paypal"></i>
+
+                            <span>PayPal</span>
+
+                        </div>
+
+                    </label>
+
+                    <!-- UPI -->
+
+                    <label class="payment-option">
+
+                        <input type="radio"
+                               name="paymentMethod"
+                               value="UPI">
+
+                        <div class="payment-box">
+
+                            <i class="fa-solid fa-qrcode"></i>
+
+                            <span>UPI</span>
+
+                        </div>
+
+                    </label>
+
+                    <!-- BANK -->
+
+                    <label class="payment-option">
+
+                        <input type="radio"
+                               name="paymentMethod"
+                               value="NETBANKING">
+
+                        <div class="payment-box">
+
+                            <i class="fa-solid fa-building-columns"></i>
+
+                            <span>Bank</span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+                <!-- SECURITY -->
+
+                <div class="selected-payment">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        100% Secure Payment Gateway
+                    </span>
+
+                </div>
+
+                <!-- BUTTON -->
+
+                <button type="submit"
+                        class="normal-pay-btn">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Continue Payment
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

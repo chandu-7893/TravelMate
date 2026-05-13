@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>TravelMate - Book Tour</title>
+
+	<link rel="stylesheet" href="/css/tour.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="tour-body">
+
+	<!-- SIDEBAR -->
+
+	<aside class="sidebar">
+
+		<div>
+
+			<h2>TravelMate</h2>
+
+			<a href="/dashboard">
+				<i class="fa-solid fa-house"></i>
+				Dashboard
+			</a>
+
+			<a href="/tour" class="active">
+				<i class="fa-solid fa-plane-departure"></i>
+				Book Tour
+			</a>
+
+			<a href="/history">
+				<i class="fa-solid fa-clock-rotate-left"></i>
+				History
+			</a>
+
+		</div>
+
+		<a href="/logout" class="logout-btn">
+			<i class="fa-solid fa-right-from-bracket"></i>
+			Logout
+		</a>
+
+	</aside>
+
+	<!-- MAIN -->
+
+	<main class="tour-main">
+
+		<!-- HERO -->
+
+		<section class="tour-hero">
+
+			<div class="hero-overlay">
+
+				<span class="hero-badge">
+					✨ Premium Booking Experience
+				</span>
+
+				<h1>
+					Book Your Dream Trip
+				</h1>
+
+				<p>
+					Discover luxury destinations,
+					premium hotels and unforgettable adventures.
+				</p>
+
+			</div>
+
+		</section>
+
+		<!-- CONTENT -->
+
+		<div class="tour-layout">
+
+			<!-- LEFT -->
+
+			<div class="tour-info">
+
+				<h2>Travel Benefits</h2>
+
+				<div class="info-card">
+
+					<div class="info-icon">
+						🌍
+					</div>
+
+					<div>
+						<h3>25+ Destinations</h3>
+
+						<p>
+							Beaches, mountains, royal cities and more.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<div class="info-icon">
+						🎮
+					</div>
+
+					<div>
+						<h3>Game Discounts</h3>
+
+						<p>
+							Win up to ₹1000 instant discount.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<div class="info-icon">
+						📄
+					</div>
+
+					<div>
+						<h3>PDF Bills</h3>
+
+						<p>
+							Download premium travel invoices.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<div class="info-icon">
+						⭐
+					</div>
+
+					<div>
+						<h3>Luxury Hotels</h3>
+
+						<p>
+							Premium resorts and comfort stays.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- RIGHT -->
+
+			<div class="tour-form-card">
+
+				<h1>Book Your Trip</h1>
+
+				<p class="subtitle">
+					Select destination, hotel, vehicle and travel days.
+				</p>
+
+				<form action="/tour" method="post" th:object="${booking}">
+
+					<!-- DESTINATION -->
+
+					<div class="input-group">
+
+						<label>
+							Destination
+						</label>
+
+						<select th:field="*{place}" required>
+
+							<option value="">
+								Select Destination
+							</option>
+
+							<!-- BEACH -->
+
+							<option value="Goa">
+								Goa - ₹5,000/day
+							</option>
+
+							<option value="Pondicherry">
+								Pondicherry - ₹4,500/day
+							</option>
+
+							<option value="Andaman">
+								Andaman - ₹9,000/day
+							</option>
+
+							<option value="Lakshadweep">
+								Lakshadweep - ₹10,000/day
+							</option>
+
+							<!-- HILL STATIONS -->
+
+							<option value="Manali">
+								Manali - ₹7,000/day
+							</option>
+
+							<option value="Ooty">
+								Ooty - ₹5,500/day
+							</option>
+
+							<option value="Munnar">
+								Munnar - ₹6,000/day
+							</option>
+
+							<option value="Darjeeling">
+								Darjeeling - ₹6,500/day
+							</option>
+
+							<option value="Shimla">
+								Shimla - ₹6,000/day
+							</option>
+
+							<!-- NATURE -->
+
+							<option value="Kerala">
+								Kerala - ₹6,500/day
+							</option>
+
+							<option value="Coorg">
+								Coorg - ₹5,800/day
+							</option>
+
+							<option value="Kashmir">
+								Kashmir - ₹9,500/day
+							</option>
+
+							<!-- CITY -->
+
+							<option value="Hyderabad">
+								Hyderabad - ₹3,000/day
+							</option>
+
+							<option value="Bangalore">
+								Bangalore - ₹4,000/day
+							</option>
+
+							<option value="Mumbai">
+								Mumbai - ₹5,500/day
+							</option>
+
+							<option value="Delhi">
+								Delhi - ₹4,500/day
+							</option>
+
+							<option value="Chennai">
+								Chennai - ₹4,000/day
+							</option>
+
+							<option value="Kolkata">
+								Kolkata - ₹4,200/day
+							</option>
+
+							<!-- ROYAL -->
+
+							<option value="Jaipur">
+								Jaipur - ₹6,500/day
+							</option>
+
+							<option value="Udaipur">
+								Udaipur - ₹7,000/day
+							</option>
+
+							<option value="Jaisalmer">
+								Jaisalmer - ₹7,500/day
+							</option>
+
+							<!-- SPIRITUAL -->
+
+							<option value="Varanasi">
+								Varanasi - ₹4,500/day
+							</option>
+
+							<option value="Tirupati">
+								Tirupati - ₹3,500/day
+							</option>
+
+							<option value="Rishikesh">
+								Rishikesh - ₹5,000/day
+							</option>
+
+						</select>
+
+					</div>
+
+					<!-- VEHICLE -->
+
+					<div class="input-group">
+
+						<label>
+							Vehicle
+						</label>
+
+						<select th:field="*{vehicle}" required>
+
+							<option value="">
+								Select Vehicle
+							</option>
+
+							<option value="Car">
+								Car - ₹2,500/day
+							</option>
+
+							<option value="Bus">
+								Bus - ₹1,200/day
+							</option>
+
+							<option value="Train">
+								Train - ₹1,800/day
+							</option>
+
+							<option value="Flight">
+								Flight - ₹6,000/day
+							</option>
+
+						</select>
+
+					</div>
+
+					<!-- HOTEL -->
+
+					<div class="input-group">
+
+						<label>
+							Hotel
+						</label>
+
+						<select th:field="*{hotel}" required>
+
+							<option value="">
+								Select Hotel
+							</option>
+
+							<option value="Normal">
+								Normal - ₹1,500/day
+							</option>
+
+							<option value="Deluxe">
+								Deluxe - ₹3,000/day
+							</option>
+
+							<option value="Premium">
+								Premium - ₹5,000/day
+							</option>
+
+						</select>
+
+					</div>
+
+					<!-- DAYS -->
+
+					<div class="input-group">
+
+						<label>
+							Days
+						</label>
+
+						<input type="number" th:field="*{days}" min="1" placeholder="Enter days" required>
+
+					</div>
+
+					<button class="book-btn">
+						Continue to Game 🎮
+					</button>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</main>
+
+	<div class="page-loader" id="pageLoader">
+		<div class="loader-card">
+			<img src="/images/logo.jpg" alt="TravelMate">
+			<div class="loader-plane">✈</div>
+			<h2>TravelMate</h2>
+			<p>Preparing your journey...</p>
+		</div>
+	</div>
+
+	<script>
+		const loader = document.getElementById("pageLoader");
+
+		window.addEventListener("load", function () {
+			setTimeout(() => {
+				loader.classList.add("hide-loader");
+			}, 500);
+		});
+
+		document.querySelectorAll("a").forEach(link => {
+			link.addEventListener("click", function (e) {
+				const href = this.getAttribute("href");
+
+				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+					return;
+				}
+
+				e.preventDefault();
+				loader.classList.remove("hide-loader");
+
+				setTimeout(() => {
+					window.location.href = href;
+				}, 900);
+			});
+		});
+
+		document.querySelectorAll("form").forEach(form => {
+			form.addEventListener("submit", function () {
+				loader.classList.remove("hide-loader");
+			});
+		});
+	</script>
+
+</body>
+
+</html>
