@@ -5,7 +5,9 @@
 
     <title>TravelMate</title>
 
-    <link rel="icon" type="image/png" href="/images/logo.jpg">
+    <link rel="icon"
+          type="image/png"
+          href="/images/logo.jpg">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
@@ -20,196 +22,266 @@
 
 <body>
 
-<!-- ========= BACKGROUND EFFECTS ========= -->
+<div class="app">
 
-<div class="bg-circle c1"></div>
-<div class="bg-circle c2"></div>
-<div class="bg-circle c3"></div>
+    <!-- SIDEBAR -->
 
-<!-- ========= VEHICLES ========= -->
+    <aside class="sidebar">
 
-<div class="vehicles">
+        <div class="brand">
 
-    <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png"
-         class="plane">
+            <img src="/images/logo.jpg"
+                 alt="logo">
 
-    <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png"
-         class="train">
+            <h2>TravelMate</h2>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png"
-         class="bus">
+        </div>
 
-</div>
+        <a href="/" class="active">
 
-<!-- ========= NAVBAR ========= -->
+            <i class="fa-solid fa-house"></i>
 
-<nav>
-
-    <div class="logo">
-
-        <img src="/images/logo.jpg">
-
-        <span>TravelMate</span>
-
-    </div>
-
-    <div class="nav-links">
-
-        <a href="/">Home</a>
-
-        <a href="/login">Login</a>
-
-        <a href="/register"
-           class="register-btn">
-
-            Register
+            <span>Home</span>
 
         </a>
 
-    </div>
+        <a href="/packages">
 
-</nav>
+            <i class="fa-solid fa-compass"></i>
 
-<!-- ========= HERO ========= -->
+            <span>Explore</span>
 
-<section class="hero">
+        </a>
 
-    <!-- LEFT -->
+        <a href="/history">
 
-    <div class="left">
+            <i class="fa-solid fa-ticket"></i>
 
-        <span class="tag">
-            ✈ Explore • Travel • Enjoy
-        </span>
+            <span>My Trips</span>
 
-        <h1>
-            Discover The World
-            With <span>TravelMate</span>
-        </h1>
+        </a>
 
-        <p>
-            Book luxury hotels, flights,
-            trains and buses with premium discounts
-            and unforgettable travel experiences.
-        </p>
+        <a href="/favorites">
 
-        <!-- SEARCH -->
+            <i class="fa-regular fa-heart"></i>
 
-        <form class="search-box"
-              action="/packages"
-              method="get">
+            <span>Favorites</span>
 
-            <input type="text"
-                   placeholder="Search destination..."
-                   name="destination"
-                   required>
+        </a>
 
-            <input type="date"
-                   name="travelDate"
-                   class="premium-date"
-                   required>
+        <a href="/bookings">
 
-            <select name="travelers">
+            <i class="fa-solid fa-suitcase"></i>
 
-                <option>1 Traveler</option>
-                <option>2 Travelers</option>
-                <option>3 Travelers</option>
-                <option>4 Travelers</option>
+            <span>Bookings</span>
 
-            </select>
+        </a>
 
-            <button type="submit">
-                Search Trip 🔍
-            </button>
+        <div class="sidebar-divider"></div>
 
-        </form>
+        <a href="/login">
 
-        <!-- BUTTONS -->
+            <i class="fa-solid fa-user"></i>
 
-        <div class="buttons">
+            <span>Login</span>
 
-            <a href="/register"
-               class="start-btn"
-               onclick="startTravelAnimation(event, '/register')">
+        </a>
 
-                Get Started 🚀
+        <a href="/register">
+
+            <i class="fa-solid fa-user-plus"></i>
+
+            <span>Register</span>
+
+        </a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="feed">
+
+        <!-- MOBILE HEADER -->
+
+        <header class="mobile-header">
+
+            <h2>TravelMate</h2>
+
+            <a href="/login">
+
+                <i class="fa-regular fa-user"></i>
 
             </a>
 
-            <a href="/login"
-               class="login-btn"
-               onclick="startTravelAnimation(event, '/login')">
+        </header>
 
-                Login
+        <!-- STORIES -->
 
-            </a>
+        <section class="stories">
 
-        </div>
+            <div class="story">
 
-        <!-- STATS -->
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&q=80">
 
-        <div class="stats">
-
-            <div class="stat-card">
-
-                <h2>500+</h2>
-                <p>Luxury Hotels</p>
+                <p>Goa</p>
 
             </div>
 
-            <div class="stat-card">
+            <div class="story">
 
-                <h2>120+</h2>
-                <p>Flight Routes</p>
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=300&q=80">
 
-            </div>
-
-            <div class="stat-card">
-
-                <h2>50K+</h2>
-                <p>Happy Travelers</p>
+                <p>Taj</p>
 
             </div>
 
-        </div>
+            <div class="story">
 
-    </div>
+                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=300&q=80">
 
-    <!-- RIGHT -->
+                <p>Kerala</p>
 
-    <div class="right">
+            </div>
 
-        <div class="package-card">
+            <div class="story">
 
-            <div class="shine"></div>
+                <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=300&q=80">
 
-            <span class="popular">
-                🔥 Popular Package
-            </span>
+                <p>Manali</p>
 
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+            </div>
 
-            <div class="package-content">
+            <div class="story">
 
-                <h2>Goa Beach Paradise</h2>
+                <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=300&q=80">
+
+                <p>Maldives</p>
+
+            </div>
+
+        </section>
+
+        <!-- HERO SEARCH -->
+
+        <section class="hero-search">
+
+            <div class="hero-content">
+
+                <h1>
+                    Explore The World With TravelMate
+                </h1>
 
                 <p>
-                    Flight + Hotel + Food + Fun Activities
+                    Find flights, hotels, buses and unforgettable adventures.
                 </p>
 
-                <div class="price-box">
+                <form id="travelForm"
+                      action="/packages"
+                      method="get">
 
-                    <h1>₹9,999</h1>
+                    <input type="text"
+                           name="destination"
+                           placeholder="Search destination..."
+                           required>
 
-                    <span>
-                        3 Days / 2 Nights
-                    </span>
+                    <input type="date"
+                           name="travelDate"
+                           required>
+
+                    <select name="travelers">
+
+                        <option>1 Traveler</option>
+                        <option>2 Travelers</option>
+                        <option>3 Travelers</option>
+                        <option>4 Travelers</option>
+
+                    </select>
+
+                    <button type="submit"
+                            id="searchBtn">
+
+                        Search Trip 🔍
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- POST -->
+
+        <article class="post">
+
+            <div class="post-header">
+
+                <div class="profile">
+
+                    <img src="/images/logo.jpg">
+
+                    <div>
+
+                        <h3>
+                            travelmate_official
+                        </h3>
+
+                        <p>
+                            Goa, India
+                        </p>
+
+                    </div>
 
                 </div>
 
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <img class="post-img"
+                 src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80">
+
+            <div class="post-actions">
+
+                <div>
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <i class="fa-regular fa-comment"></i>
+
+                    <i class="fa-regular fa-paper-plane"></i>
+
+                </div>
+
+                <i class="fa-regular fa-bookmark"></i>
+
+            </div>
+
+            <div class="post-content">
+
+                <div class="package-tag">
+
+                    🔥 Trending Destination
+
+                </div>
+
+                <h2>
+                    Goa Beach Paradise
+                </h2>
+
+                <p>
+                    Luxury beach resorts,
+                    nightlife and unforgettable sunsets.
+                </p>
+
+                <h1>₹9,999</h1>
+
+                <span>
+                    3 Days / 2 Nights
+                </span>
+
                 <a href="/register"
-                   class="book-btn"
-                   onclick="startTravelAnimation(event, '/register')">
+                   class="book-btn">
 
                     Book Now ✨
 
@@ -217,134 +289,39 @@
 
             </div>
 
-        </div>
+        </article>
 
-    </div>
-
-</section>
-
-<!-- ========= TRAVEL OVERLAY ========= -->
-
-<div class="travel-overlay"
-     id="travelOverlay">
-
-    <div class="overlay-road"></div>
-
-    <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png"
-         class="overlay-plane">
-
-    <h1>Preparing Your Journey...</h1>
+    </main>
 
 </div>
 
-<!-- ========= PAGE LOADER ========= -->
-
-<div class="page-loader"
-     id="pageLoader">
-
-    <div class="loader-card">
-
-        <img src="/images/logo.jpg"
-             alt="TravelMate">
-
-        <div class="loader-plane">
-            ✈
-        </div>
-
-        <h2>TravelMate</h2>
-
-        <p>
-            Preparing your journey...
-        </p>
-
-    </div>
-
-</div>
-
-<!-- ========= SCRIPT ========= -->
+<!-- LOGIN CHECK -->
 
 <script>
 
-    function startTravelAnimation(event, url) {
-
-        event.preventDefault();
-
-        const overlay =
-            document.getElementById("travelOverlay");
-
-        overlay.classList.add("active");
-
-        setTimeout(() => {
-
-            window.location.href = url;
-
-        }, 2500);
-    }
-
-    window.addEventListener("pageshow", function () {
-
-        const overlay =
-            document.getElementById("travelOverlay");
-
-        overlay.classList.remove("active");
-    });
-
-</script>
-
-<!-- ========= LOADER SCRIPT ========= -->
-
-<script>
-
-    const loader =
-        document.getElementById("pageLoader");
-
-    window.addEventListener("load", function () {
-
-        setTimeout(() => {
-
-            loader.classList.add("hide-loader");
-
-        }, 500);
-
-    });
-
-    document.querySelectorAll("a").forEach(link => {
-
-        link.addEventListener("click", function (e) {
-
-            const href =
-                this.getAttribute("href");
-
-            if (!href ||
-                href.startsWith("#") ||
-                href.startsWith("javascript")) {
-
-                return;
-            }
+    document
+        .getElementById("searchBtn")
+        .addEventListener("click", function (e) {
 
             e.preventDefault();
 
-            loader.classList.remove("hide-loader");
+            const isLoggedIn =
+                localStorage.getItem("loggedInUser");
 
-            setTimeout(() => {
+            if (isLoggedIn) {
 
-                window.location.href = href;
+                document
+                    .getElementById("travelForm")
+                    .submit();
 
-            }, 900);
+            } else {
 
-        });
+                window.location.href =
+                    "/register";
 
-    });
-
-    document.querySelectorAll("form").forEach(form => {
-
-        form.addEventListener("submit", function () {
-
-            loader.classList.remove("hide-loader");
+            }
 
         });
-
-    });
 
 </script>
 
