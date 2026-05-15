@@ -663,3 +663,115 @@ input[type="date"]::-webkit-datetime-edit-year-field{
 .search-box input[type="date"]::-webkit-datetime-edit-year-field {
     color: #ffffff;
 }
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.left,
+.right{
+    flex:1;
+    min-width:300px;
+}
+
+.package-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+    .hero{
+        flex-direction:column;
+        padding:40px 20px;
+        text-align:center;
+    }
+
+    .left,
+    .right{
+        width:100%;
+    }
+
+    .search-box{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .stats{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    .nav-links{
+        display:flex;
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        padding:20px;
+        gap:30px;
+    }
+
+    .left h1{
+        font-size:42px;
+        line-height:1.2;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-box input,
+    .search-box select,
+    .search-box button{
+        width:100%;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .stats{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .stat-card{
+        width:100%;
+        max-width:250px;
+    }
+
+    .package-card img{
+        height:220px;
+    }
+
+    .package-content{
+        padding:20px;
+    }
+}
