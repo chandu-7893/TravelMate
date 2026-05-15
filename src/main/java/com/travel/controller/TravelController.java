@@ -134,39 +134,120 @@ public class TravelController {
 
         double discount = 0;
 
-        if (game.equals("word")) {
+        // GAME 1 → Guess Destination
 
-            if (answer.equalsIgnoreCase("TRAVEL")) {
+        if (game.equals("destination")) {
+
+            if (answer.equalsIgnoreCase("Goa")) {
+
                 discount = 500;
+
             } else {
-                model.addAttribute("error", "Wrong answer! Try again.");
-                return "game";
-            }
 
-        } else if (game.equals("number")) {
+                model.addAttribute(
+                        "error",
+                        "Wrong answer! Correct place not found.");
 
-            if (answer.trim().equals("40")) {
-                discount = 700;
-            } else {
-                model.addAttribute("error", "Wrong answer! Try again.");
-                return "game";
-            }
-
-        } else if (game.equals("memory")) {
-
-            if (answer.equalsIgnoreCase("TRIP2026")) {
-                discount = 1000;
-            } else {
-                model.addAttribute("error", "Wrong answer! Try again.");
                 return "game";
             }
         }
 
-        bookingService.applyDiscount(bookingId, discount);
+        // GAME 2 → Lucky Spin
+
+        else if (game.equals("spin")) {
+
+            if (answer.equalsIgnoreCase("LUCKY")) {
+
+                discount = 700;
+
+            } else {
+
+                model.addAttribute(
+                        "error",
+                        "Spin failed! Try again.");
+
+                return "game";
+            }
+        }
+
+        // GAME 3 → Travel Quiz
+
+        else if (game.equals("quiz")) {
+
+            if (answer.equalsIgnoreCase("Delhi")) {
+
+                discount = 900;
+
+            } else {
+
+                model.addAttribute(
+                        "error",
+                        "Wrong quiz answer!");
+
+                return "game";
+            }
+        }
+
+        // GAME 4 → Treasure Hunt
+
+        else if (game.equals("treasure")) {
+
+            if (answer.equalsIgnoreCase("TREASURE")) {
+
+                discount = 1200;
+
+            } else {
+
+                model.addAttribute(
+                        "error",
+                        "Treasure not found!");
+
+                return "game";
+            }
+        }
+
+        // GAME 5 → Fast Click
+
+        else if (game.equals("click")) {
+
+            if (answer.equalsIgnoreCase("FAST")) {
+
+                discount = 600;
+
+            } else {
+
+                model.addAttribute(
+                        "error",
+                        "Too slow!");
+
+                return "game";
+            }
+        }
+
+        // GAME 6 → Memory Cards
+
+        else if (game.equals("memory")) {
+
+            if (answer.equalsIgnoreCase("TRAVEL2026")) {
+
+                discount = 1500;
+
+            } else {
+
+                model.addAttribute(
+                        "error",
+                        "Memory match failed!");
+
+                return "game";
+            }
+        }
+
+        bookingService.applyDiscount(
+                bookingId,
+                discount);
 
         return "redirect:/payment";
     }
-
     @GetMapping("/bill")
     public String billPage(
             HttpSession session,

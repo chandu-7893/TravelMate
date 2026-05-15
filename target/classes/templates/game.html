@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>🎯TravelMate Game Zone</title>
+	<title>🎯 TravelMate Game Zone</title>
 
 	<link rel="stylesheet" href="/css/game.css">
 
@@ -62,8 +62,8 @@
 			</h1>
 
 			<p>
-				Play exciting mini games and win up to ₹1000 OFF
-				on your dream travel booking.
+				Play exciting games and unlock
+				premium TravelMate discounts.
 			</p>
 
 		</section>
@@ -79,32 +79,31 @@
 				</h2>
 
 				<p>
-					Select one game below and answer correctly
-					to unlock discount rewards.
+					Play games and unlock travel rewards.
 				</p>
 
 			</div>
 
-			<!-- GAME OPTIONS -->
+			<!-- GAMES -->
 
 			<div class="game-options premium-games">
 
-				<!-- WORD -->
+				<!-- DESTINATION -->
 
 				<label class="game-option word-card">
 
-					<input type="radio" name="gameSelect" value="word" onclick="showQuestion('word')">
+					<input type="radio" name="gameSelect" value="destination" onclick="showQuestion('destination')">
 
 					<div class="game-inner">
 
 						<div class="game-big-icon">
-							🔤
+							🌍
 						</div>
 
-						<h3>Word Puzzle</h3>
+						<h3>Guess Destination</h3>
 
 						<p>
-							Unscramble the hidden travel word.
+							Guess the famous travel destination.
 						</p>
 
 						<span>
@@ -115,26 +114,104 @@
 
 				</label>
 
-				<!-- NUMBER -->
+				<!-- SPIN -->
 
 				<label class="game-option number-card">
 
-					<input type="radio" name="gameSelect" value="number" onclick="showQuestion('number')">
+					<input type="radio" name="gameSelect" value="spin" onclick="showQuestion('spin')">
 
 					<div class="game-inner">
 
 						<div class="game-big-icon">
-							🔢
+							🎡
 						</div>
 
-						<h3>Math Rush</h3>
+						<h3>Lucky Spin</h3>
 
 						<p>
-							Solve the quick math challenge.
+							Unlock surprise travel rewards.
 						</p>
 
 						<span>
 							₹700 OFF
+						</span>
+
+					</div>
+
+				</label>
+
+				<!-- QUIZ -->
+
+				<label class="game-option memory-card">
+
+					<input type="radio" name="gameSelect" value="quiz" onclick="showQuestion('quiz')">
+
+					<div class="game-inner">
+
+						<div class="game-big-icon">
+							🧠
+						</div>
+
+						<h3>Travel Quiz</h3>
+
+						<p>
+							Answer travel challenge questions.
+						</p>
+
+						<span>
+							₹900 OFF
+						</span>
+
+					</div>
+
+				</label>
+
+				<!-- TREASURE -->
+
+				<label class="game-option word-card">
+
+					<input type="radio" name="gameSelect" value="treasure" onclick="showQuestion('treasure')">
+
+					<div class="game-inner">
+
+						<div class="game-big-icon">
+							🗺
+						</div>
+
+						<h3>Treasure Hunt</h3>
+
+						<p>
+							Find the hidden treasure code.
+						</p>
+
+						<span>
+							₹1200 OFF
+						</span>
+
+					</div>
+
+				</label>
+
+				<!-- FAST -->
+
+				<label class="game-option number-card">
+
+					<input type="radio" name="gameSelect" value="click" onclick="showQuestion('click')">
+
+					<div class="game-inner">
+
+						<div class="game-big-icon">
+							⚡
+						</div>
+
+						<h3>Fast Click</h3>
+
+						<p>
+							Finish challenge before timer ends.
+						</p>
+
+						<span>
+							₹600 OFF
 						</span>
 
 					</div>
@@ -150,17 +227,17 @@
 					<div class="game-inner">
 
 						<div class="game-big-icon">
-							🧠
+							🎴
 						</div>
 
-						<h3>Memory Code</h3>
+						<h3>Memory Cards</h3>
 
 						<p>
-							Remember the hidden booking code.
+							Remember the secret travel code.
 						</p>
 
 						<span>
-							₹1000 OFF
+							₹1500 OFF
 						</span>
 
 					</div>
@@ -173,14 +250,14 @@
 
 			<form action="/game" method="post" class="answer-form">
 
-				<!-- IMPORTANT -->
-
 				<input type="hidden" id="gameType" name="game">
 
 				<div class="timer-box">
+
 					⏳ Time Left:
 					<span id="timer">30</span>
 					sec
+
 				</div>
 
 				<div class="question-card">
@@ -198,7 +275,9 @@
 				<input type="text" id="answerInput" name="answer" placeholder="Enter your answer" required>
 
 				<button type="submit" class="primary-btn">
+
 					Submit Answer 🚀
+
 				</button>
 
 			</form>
@@ -250,118 +329,279 @@
 	</div>
 
 	<!-- SCRIPT -->
+
 	<script>
+
 		let timer = 30;
+
 		let timerInterval;
 
 		function showAlert(message) {
-			document.getElementById("alertMessage").innerText = message;
-			document.getElementById("customAlert").style.display = "flex";
+
+			document.getElementById(
+				"alertMessage"
+			).innerText = message;
+
+			document.getElementById(
+				"customAlert"
+			).style.display = "flex";
 		}
 
 		function closeAlert() {
-			document.getElementById("customAlert").style.display = "none";
+
+			document.getElementById(
+				"customAlert"
+			).style.display = "none";
 		}
 
 		function showQuestion(type) {
-			document.getElementById("gameType").value = type;
-			document.getElementById("answerInput").value = "";
 
-			if (type === "word") {
-				document.getElementById("questionTitle").innerText = "Word Puzzle 🔤";
-				document.getElementById("questionText").innerText = "Unscramble this word: AVRLET";
+			document.getElementById(
+				"gameType"
+			).value = type;
+
+			document.getElementById(
+				"answerInput"
+			).value = "";
+
+			if (type === "destination") {
+
+				document.getElementById(
+					"questionTitle"
+				).innerText =
+					"Guess Destination 🌍";
+
+				document.getElementById(
+					"questionText"
+				).innerText =
+					"Which place is famous for beaches and nightlife?";
 			}
 
-			else if (type === "number") {
-				document.getElementById("questionTitle").innerText = "Math Rush 🔢";
-				document.getElementById("questionText").innerText = "Solve this: 15 + 25";
+			else if (type === "spin") {
+
+				document.getElementById(
+					"questionTitle"
+				).innerText =
+					"Lucky Spin 🎡";
+
+				document.getElementById(
+					"questionText"
+				).innerText =
+					"Type this word: LUCKY";
+			}
+
+			else if (type === "quiz") {
+
+				document.getElementById(
+					"questionTitle"
+				).innerText =
+					"Travel Quiz 🧠";
+
+				document.getElementById(
+					"questionText"
+				).innerText =
+					"What is the capital city of India?";
+			}
+
+			else if (type === "treasure") {
+
+				document.getElementById(
+					"questionTitle"
+				).innerText =
+					"Treasure Hunt 🗺";
+
+				document.getElementById(
+					"questionText"
+				).innerText =
+					"Enter the hidden code: TREASURE";
+			}
+
+			else if (type === "click") {
+
+				document.getElementById(
+					"questionTitle"
+				).innerText =
+					"Fast Click ⚡";
+
+				document.getElementById(
+					"questionText"
+				).innerText =
+					"Type FAST before timer ends.";
 			}
 
 			else if (type === "memory") {
-				document.getElementById("questionTitle").innerText = "Memory Challenge 🧠";
-				document.getElementById("questionText").innerText = "Remember this code: TRIP2026";
+
+				document.getElementById(
+					"questionTitle"
+				).innerText =
+					"Memory Cards 🎴";
+
+				document.getElementById(
+					"questionText"
+				).innerText =
+					"Remember this code: TRAVEL2026";
 			}
 
 			startTimer();
 		}
 
 		function startTimer() {
+
 			clearInterval(timerInterval);
+
 			timer = 30;
-			document.getElementById("timer").innerText = timer;
+
+			document.getElementById(
+				"timer"
+			).innerText = timer;
 
 			timerInterval = setInterval(() => {
+
 				timer--;
-				document.getElementById("timer").innerText = timer;
+
+				document.getElementById(
+					"timer"
+				).innerText = timer;
 
 				if (timer <= 0) {
+
 					clearInterval(timerInterval);
+
 					showAlert("⏰ Time Up!");
 				}
+
 			}, 1000);
 		}
 
-		document.querySelector(".answer-form").addEventListener("submit", function (e) {
-			const game = document.getElementById("gameType").value;
-			const answer = document.getElementById("answerInput").value.trim();
+		document.querySelector(".answer-form")
+			.addEventListener("submit", function (e) {
 
-			if (!game) {
-				e.preventDefault();
-				showAlert("⚠️ Please select a game!");
-				return;
-			}
+				const game =
+					document.getElementById(
+						"gameType"
+					).value;
 
-			if (answer === "") {
-				e.preventDefault();
-				showAlert("⚠️ Please enter your answer!");
-				return;
-			}
+				const answer =
+					document.getElementById(
+						"answerInput"
+					).value.trim();
 
-			// Do NOT stop correct submit
-			// Backend will check answer and redirect to /payment
-		});
-	</script>
+				if (!game) {
 
-	<div class="page-loader" id="pageLoader">
-		<div class="loader-card">
-			<img src="/images/logo.jpg" alt="TravelMate">
-			<div class="loader-plane">✈</div>
-			<h2>TravelMate</h2>
-			<p>Preparing your journey...</p>
-		</div>
-	</div>
+					e.preventDefault();
 
-	<script>
-		const loader = document.getElementById("pageLoader");
+					showAlert(
+						"⚠️ Please select a game!"
+					);
 
-		window.addEventListener("load", function () {
-			setTimeout(() => {
-				loader.classList.add("hide-loader");
-			}, 500);
-		});
-
-		document.querySelectorAll("a").forEach(link => {
-			link.addEventListener("click", function (e) {
-				const href = this.getAttribute("href");
-
-				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
 					return;
 				}
 
-				e.preventDefault();
-				loader.classList.remove("hide-loader");
+				if (answer === "") {
+
+					e.preventDefault();
+
+					showAlert(
+						"⚠️ Please enter your answer!"
+					);
+
+					return;
+				}
+			});
+
+	</script>
+
+	<!-- LOADER -->
+
+	<div class="page-loader" id="pageLoader">
+
+		<div class="loader-card">
+
+			<img src="/images/logo.jpg" alt="TravelMate">
+
+			<div class="loader-plane">
+				✈
+			</div>
+
+			<h2>
+				TravelMate
+			</h2>
+
+			<p>
+				Preparing your journey...
+			</p>
+
+		</div>
+
+	</div>
+
+	<script>
+
+		const loader =
+			document.getElementById(
+				"pageLoader"
+			);
+
+		window.addEventListener(
+			"load",
+			function () {
 
 				setTimeout(() => {
-					window.location.href = href;
-				}, 900);
-			});
-		});
 
-		document.querySelectorAll("form").forEach(form => {
-			form.addEventListener("submit", function () {
-				loader.classList.remove("hide-loader");
+					loader.classList.add(
+						"hide-loader"
+					);
+
+				}, 500);
+			}
+		);
+
+		document.querySelectorAll("a")
+			.forEach(link => {
+
+				link.addEventListener(
+					"click",
+					function (e) {
+
+						const href =
+							this.getAttribute("href");
+
+						if (!href ||
+							href.startsWith("#") ||
+							href.startsWith("javascript")) {
+
+							return;
+						}
+
+						e.preventDefault();
+
+						loader.classList.remove(
+							"hide-loader"
+						);
+
+						setTimeout(() => {
+
+							window.location.href = href;
+
+						}, 900);
+					}
+				);
 			});
-		});
+
+		document.querySelectorAll("form")
+			.forEach(form => {
+
+				form.addEventListener(
+					"submit",
+					function () {
+
+						loader.classList.remove(
+							"hide-loader"
+						);
+					}
+				);
+			});
+
 	</script>
 
 </body>

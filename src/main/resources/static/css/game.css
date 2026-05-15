@@ -8,7 +8,6 @@
 body{
     background:#fafafa;
     color:#222;
-    min-height:100vh;
     overflow-x:hidden;
 }
 
@@ -20,19 +19,24 @@ body{
     position:fixed;
     left:0;
     top:0;
+
     background:#fff;
-    border-right:1px solid #dbdbdb;
+
+    border-right:1px solid #e5e5e5;
+
     padding:30px 20px;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 }
 
 .sidebar h2{
-    font-size:30px;
+    font-size:34px;
     margin-bottom:35px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         45deg,
         #f58529,
         #dd2a7b,
@@ -44,20 +48,19 @@ body{
 }
 
 .sidebar a{
+    text-decoration:none;
+    color:#222;
+
     display:flex;
     align-items:center;
     gap:14px;
-    text-decoration:none;
-    color:#222;
+
     padding:14px 16px;
-    border-radius:14px;
-    margin-bottom:12px;
+
+    border-radius:16px;
+
     transition:0.3s;
     font-weight:500;
-}
-
-.sidebar a i{
-    font-size:20px;
 }
 
 .sidebar a:hover{
@@ -86,44 +89,58 @@ body{
     background-position:center;
 
     padding:70px 40px;
-    border-radius:28px;
+
+    border-radius:32px;
+
     color:#fff;
+
     margin-bottom:35px;
 }
 
 .tour-tag{
     display:inline-block;
-    background:rgba(255,255,255,0.2);
-    backdrop-filter:blur(10px);
+
     padding:10px 18px;
+
     border-radius:30px;
+
     margin-bottom:20px;
+
+    background:rgba(255,255,255,0.2);
+
+    backdrop-filter:blur(10px);
+
     font-size:14px;
     font-weight:600;
 }
 
 .game-hero h1{
-    font-size:48px;
+    font-size:52px;
     margin-bottom:14px;
 }
 
 .game-hero p{
     max-width:650px;
-    line-height:1.7;
-    font-size:17px;
+    line-height:1.8;
     color:#eee;
 }
 
-/* GAME BOX */
+/* BOX */
 
 .game-box{
     background:#fff;
-    border-radius:30px;
+
+    border-radius:32px;
+
     padding:35px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.08);
+
+    border:1px solid #ececec;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.06);
 }
 
-/* QUESTION CARD */
+/* QUESTION */
 
 .question-card{
     text-align:center;
@@ -131,23 +148,29 @@ body{
 }
 
 .question-card h2{
-    font-size:34px;
+    font-size:36px;
     margin-bottom:10px;
 }
 
 .question-card p{
     color:#666;
-    line-height:1.6;
+    line-height:1.7;
 }
 
-/* GAME OPTIONS */
+/* GAMES */
 
 .game-options{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:22px;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:24px;
+
     margin-bottom:35px;
 }
+
+/* CARD */
 
 .game-option input{
     display:none;
@@ -155,62 +178,88 @@ body{
 
 .game-inner{
     background:#fff;
-    border:2px solid #eee;
-    border-radius:26px;
-    padding:35px 25px;
+
+    border-radius:30px;
+
+    padding:35px 28px;
+
     text-align:center;
+
+    border:2px solid #ececec;
+
+    transition:0.4s;
+
     cursor:pointer;
-    transition:0.3s;
+
+    height:100%;
 }
 
 .game-option:hover .game-inner{
-    transform:translateY(-6px);
+    transform:translateY(-8px);
 }
 
 .word-card .game-inner:hover{
     border-color:#dd2a7b;
-    box-shadow:0 20px 45px rgba(221,42,123,0.18);
+
+    box-shadow:
+    0 25px 60px rgba(221,42,123,0.15);
 }
 
 .number-card .game-inner:hover{
-    border-color:#8134af;
-    box-shadow:0 20px 45px rgba(129,52,175,0.18);
+    border-color:#3b82f6;
+
+    box-shadow:
+    0 25px 60px rgba(59,130,246,0.15);
 }
 
 .memory-card .game-inner:hover{
-    border-color:#f58529;
-    box-shadow:0 20px 45px rgba(245,133,41,0.18);
+    border-color:#22c55e;
+
+    box-shadow:
+    0 25px 60px rgba(34,197,94,0.15);
 }
+
+/* ICON */
 
 .game-big-icon{
-    font-size:52px;
-    margin-bottom:18px;
+    font-size:58px;
+    margin-bottom:20px;
 }
 
+/* TEXT */
+
 .game-inner h3{
-    font-size:24px;
-    margin-bottom:12px;
+    font-size:28px;
+    margin-bottom:14px;
 }
 
 .game-inner p{
     color:#666;
-    line-height:1.6;
-    margin-bottom:18px;
+    line-height:1.7;
+    margin-bottom:22px;
 }
+
+/* REWARD */
 
 .game-inner span{
     display:inline-block;
-    padding:10px 18px;
+
+    padding:10px 20px;
+
     border-radius:30px;
-    background:linear-gradient(
+
+    font-size:14px;
+    font-weight:700;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
         45deg,
         #f58529,
         #dd2a7b,
         #8134af
     );
-
-    color:#fff;
-    font-weight:700;
 }
 
 /* FORM */
@@ -223,43 +272,69 @@ body{
 /* TIMER */
 
 .timer-box{
-    background:#fff0f6;
-    color:#dd2a7b;
-    padding:16px;
-    border-radius:18px;
+    background:#fff0f5;
+
+    padding:18px;
+
+    border-radius:20px;
+
     text-align:center;
+
     font-weight:700;
-    margin-bottom:25px;
-    font-size:18px;
+
+    color:#dd2a7b;
+
+    margin-bottom:28px;
 }
 
 #timer{
-    font-size:22px;
+    font-size:24px;
 }
 
 /* INPUT */
 
 .answer-form input{
     width:100%;
+
     padding:18px;
+
     border:none;
+
     background:#f5f5f5;
-    border-radius:18px;
+
+    border-radius:20px;
+
     outline:none;
-    margin-bottom:22px;
+
+    margin-bottom:24px;
+
     font-size:16px;
+}
+
+.answer-form input:focus{
+    background:#fff;
+
+    box-shadow:
+    0 0 0 3px rgba(221,42,123,0.15);
 }
 
 /* BUTTON */
 
 .primary-btn{
     width:100%;
+
     border:none;
+
     padding:18px;
-    border-radius:18px;
+
+    border-radius:22px;
+
     cursor:pointer;
+
     font-size:17px;
     font-weight:700;
+
+    color:#fff;
 
     background:
     linear-gradient(
@@ -269,13 +344,14 @@ body{
         #8134af
     );
 
-    color:#fff;
     transition:0.3s;
 }
 
 .primary-btn:hover{
     transform:translateY(-4px);
-    box-shadow:0 18px 40px rgba(221,42,123,0.3);
+
+    box-shadow:
+    0 18px 40px rgba(221,42,123,0.22);
 }
 
 /* ALERT */
@@ -283,42 +359,55 @@ body{
 .custom-alert{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.55);
+
+    background:rgba(0,0,0,0.5);
+
+    backdrop-filter:blur(8px);
+
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:999;
-    backdrop-filter:blur(8px);
+
+    z-index:9999;
 }
 
 .alert-box{
     width:90%;
-    max-width:380px;
+    max-width:400px;
+
     background:#fff;
+
+    border-radius:30px;
+
     padding:35px;
-    border-radius:24px;
+
     text-align:center;
-    animation:pop 0.3s ease;
 }
 
 .alert-box p{
-    margin-bottom:22px;
     font-size:18px;
+    margin-bottom:22px;
 }
 
 .alert-box button{
     border:none;
+
     padding:12px 24px;
-    border-radius:12px;
-    background:linear-gradient(
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
         45deg,
         #f58529,
         #dd2a7b
     );
-
-    color:#fff;
-    cursor:pointer;
-    font-weight:700;
 }
 
 /* SUCCESS */
@@ -326,36 +415,44 @@ body{
 .success-popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.55);
+
+    background:rgba(0,0,0,0.5);
+
+    backdrop-filter:blur(8px);
+
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:999;
-    backdrop-filter:blur(8px);
+
+    z-index:9999;
 }
 
 .success-box{
     width:90%;
     max-width:420px;
+
     background:#fff;
-    border-radius:28px;
+
+    border-radius:32px;
+
     padding:40px;
+
     text-align:center;
 }
 
 .success-icon{
-    font-size:65px;
+    font-size:70px;
     margin-bottom:15px;
 }
 
 .success-box h2{
-    font-size:34px;
+    font-size:36px;
     margin-bottom:10px;
 }
 
 .success-box p{
     color:#666;
-    margin-bottom:25px;
+    margin-bottom:24px;
 }
 
 /* LOADER BAR */
@@ -363,31 +460,39 @@ body{
 .loader-bar{
     width:100%;
     height:10px;
+
     background:#eee;
+
     border-radius:30px;
+
     overflow:hidden;
 }
 
 .loader-bar span{
     display:block;
-    width:60%;
+
+    width:40%;
     height:100%;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         45deg,
         #f58529,
         #dd2a7b,
         #8134af
     );
 
-    animation:load 1.5s infinite linear;
+    animation:loading 1.5s infinite linear;
 }
 
-@keyframes load{
+@keyframes loading{
+
     0%{
         transform:translateX(-100%);
     }
+
     100%{
-        transform:translateX(300%);
+        transform:translateX(350%);
     }
 }
 
@@ -396,11 +501,15 @@ body{
 .page-loader{
     position:fixed;
     inset:0;
+
     background:#fff;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     z-index:99999;
+
     transition:0.5s;
 }
 
@@ -416,16 +525,29 @@ body{
 .loader-card img{
     width:95px;
     height:95px;
+
     border-radius:50%;
+
     object-fit:cover;
+
     margin-bottom:18px;
 }
 
+.loader-plane{
+    font-size:45px;
+
+    margin-bottom:14px;
+
+    animation:fly 1.5s infinite ease-in-out;
+}
+
 .loader-card h2{
-    font-size:34px;
+    font-size:40px;
+
     margin-bottom:10px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         45deg,
         #f58529,
         #dd2a7b,
@@ -440,32 +562,20 @@ body{
     color:#666;
 }
 
-.loader-plane{
-    font-size:45px;
-    animation:fly 1.5s infinite ease-in-out;
-    margin-bottom:12px;
-}
+/* ANIMATION */
 
 @keyframes fly{
+
     0%{
         transform:translateX(-10px);
     }
+
     50%{
         transform:translateX(10px);
     }
+
     100%{
         transform:translateX(-10px);
-    }
-}
-
-@keyframes pop{
-    from{
-        transform:scale(0.8);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
     }
 }
 
@@ -479,29 +589,37 @@ body{
 
     .game-main{
         margin-left:0;
-        padding:18px;
+        padding:20px;
     }
 
     .game-hero{
-        padding:50px 25px;
+        padding:45px 25px;
     }
 
     .game-hero h1{
-        font-size:34px;
-    }
-
-    .question-card h2{
-        font-size:28px;
+        font-size:36px;
     }
 
     .game-box{
-        padding:22px;
+        padding:25px;
     }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
+
+    .game-main{
+        padding:15px;
+    }
+
+    .game-hero{
+        border-radius:24px;
+    }
 
     .game-hero h1{
+        font-size:30px;
+    }
+
+    .question-card h2{
         font-size:28px;
     }
 
@@ -509,11 +627,11 @@ body{
         padding:28px 20px;
     }
 
-    .question-card h2{
+    .game-inner h3{
         font-size:24px;
     }
 
-    .primary-btn{
-        font-size:15px;
+    .success-box{
+        padding:30px 22px;
     }
 }
