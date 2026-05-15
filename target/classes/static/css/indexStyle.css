@@ -1,14 +1,113 @@
-/* =========================================
-   PREMIUM RESPONSIVE DESIGN
-========================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+    min-height:100vh;
+    position:relative;
+}
+
+/* BACKGROUND */
+
+.bg-circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:0;
+}
+
+.c1{
+    width:300px;
+    height:300px;
+    background:#00c3ff;
+    top:-80px;
+    left:-80px;
+}
+
+.c2{
+    width:350px;
+    height:350px;
+    background:#7b2cff;
+    right:-100px;
+    top:200px;
+}
+
+.c3{
+    width:280px;
+    height:280px;
+    background:#ff2ca0;
+    bottom:-100px;
+    left:30%;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:22px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:10;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo span{
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#00c3ff;
+}
+
+.register-btn{
+    padding:12px 24px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#00c3ff,#7b2cff);
+}
+
+/* HERO */
 
 .hero{
     width:100%;
-    min-height:100vh;
+    min-height:calc(100vh - 90px);
     padding:40px 6% 80px;
 
-    display:grid;
-    grid-template-columns:1fr 1fr;
+    display:flex;
+    justify-content:space-between;
     align-items:center;
     gap:70px;
 
@@ -19,33 +118,45 @@
 /* LEFT */
 
 .left{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    flex:1;
+}
+
+.tag{
+    padding:10px 18px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    display:inline-block;
+    font-size:14px;
 }
 
 .left h1{
-    font-size:clamp(48px,5vw,82px);
+    font-size:clamp(48px,6vw,82px);
     line-height:1.05;
+    margin:25px 0;
     font-weight:800;
-    margin:20px 0;
+}
+
+.left h1 span{
+    background:linear-gradient(135deg,#00c3ff,#ff2ca0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .left p{
     font-size:18px;
     line-height:1.8;
-    color:#cfcfcf;
+    color:#d6d6d6;
     max-width:700px;
 }
 
-/* SEARCH BOX */
+/* SEARCH */
 
 .search-box{
     width:100%;
     max-width:850px;
 
     display:flex;
-    align-items:center;
     gap:14px;
 
     padding:16px;
@@ -55,52 +166,33 @@
 
     background:rgba(255,255,255,0.06);
 
-    backdrop-filter:blur(20px);
-
     border:1px solid rgba(255,255,255,0.08);
 
-    box-shadow:
-    0 10px 40px rgba(0,0,0,0.25);
+    backdrop-filter:blur(20px);
 }
 
 .search-box input,
 .search-box select{
     flex:1;
-
     height:58px;
-
     border:none;
     outline:none;
-
     border-radius:16px;
-
     padding:0 18px;
-
     background:rgba(255,255,255,0.08);
-
     color:white;
-
-    font-size:15px;
 }
 
 .search-box button{
     height:58px;
-
     padding:0 28px;
-
     border:none;
-
     border-radius:16px;
-
-    background:linear-gradient(135deg,#1cc8ff,#8b5cf6);
-
+    background:linear-gradient(135deg,#00c3ff,#7b2cff);
     color:white;
-
     font-weight:700;
-
     cursor:pointer;
-
-    transition:0.4s;
+    transition:0.3s;
 }
 
 .search-box button:hover{
@@ -111,39 +203,52 @@
 
 .buttons{
     display:flex;
-    align-items:center;
     gap:18px;
-
     margin-top:30px;
+}
+
+.start-btn,
+.login-btn{
+    padding:16px 28px;
+    border-radius:16px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.start-btn{
+    background:linear-gradient(135deg,#ff2ca0,#7b2cff);
+}
+
+.login-btn{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.start-btn:hover,
+.login-btn:hover{
+    transform:translateY(-3px);
 }
 
 /* STATS */
 
 .stats{
     display:flex;
-    gap:22px;
-
+    gap:20px;
     margin-top:50px;
-
     flex-wrap:wrap;
 }
 
 .stat-card{
     min-width:170px;
-
-    padding:35px 25px;
-
-    border-radius:26px;
-
+    padding:30px 24px;
+    border-radius:24px;
     background:rgba(255,255,255,0.06);
-
     border:1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(14px);
-
+    backdrop-filter:blur(16px);
     text-align:center;
-
-    transition:0.4s;
+    transition:0.3s;
 }
 
 .stat-card:hover{
@@ -151,21 +256,21 @@
 }
 
 .stat-card h2{
-    font-size:44px;
-    margin-bottom:12px;
+    font-size:40px;
+    margin-bottom:10px;
 }
 
 /* RIGHT */
 
 .right{
+    flex:1;
     display:flex;
     justify-content:center;
-    align-items:center;
 }
 
 .package-card{
     width:100%;
-    max-width:860px;
+    max-width:850px;
 
     overflow:hidden;
 
@@ -177,8 +282,7 @@
 
     backdrop-filter:blur(20px);
 
-    box-shadow:
-    0 20px 60px rgba(0,0,0,0.35);
+    box-shadow:0 20px 60px rgba(0,0,0,0.35);
 
     position:relative;
 }
@@ -189,69 +293,126 @@
     object-fit:cover;
 }
 
+.popular{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:10px 18px;
+    border-radius:20px;
+    background:#ff2ca0;
+    font-size:14px;
+    font-weight:600;
+}
+
 .package-content{
     padding:35px;
 }
 
 .package-content h2{
-    font-size:42px;
-    margin-bottom:12px;
+    font-size:40px;
+    margin-bottom:10px;
 }
 
 .package-content p{
-    color:#cfcfcf;
+    color:#d6d6d6;
 }
 
 .price-box{
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     margin:30px 0;
 }
 
 .price-box h1{
-    font-size:54px;
+    font-size:52px;
 }
 
 .book-btn{
     width:100%;
-    height:62px;
-
+    height:60px;
     display:flex;
     justify-content:center;
     align-items:center;
-
     border-radius:18px;
-
     text-decoration:none;
-
-    background:linear-gradient(135deg,#ff3ec9,#8b5cf6);
-
+    background:linear-gradient(135deg,#ff2ca0,#7b2cff);
     color:white;
-
     font-weight:700;
-
-    transition:0.4s;
+    transition:0.3s;
 }
 
 .book-btn:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 }
 
-/* =========================================
-   TABLET
-========================================= */
+/* VEHICLES */
+
+.vehicles img{
+    position:absolute;
+    opacity:0.15;
+    z-index:0;
+}
+
+.plane{
+    width:120px;
+    top:10%;
+    animation:fly 12s linear infinite;
+}
+
+.train{
+    width:140px;
+    bottom:15%;
+    animation:moveTrain 16s linear infinite;
+}
+
+.bus{
+    width:100px;
+    right:5%;
+    bottom:10%;
+    animation:moveBus 12s linear infinite;
+}
+
+@keyframes fly{
+    from{
+        left:-150px;
+    }
+    to{
+        left:110%;
+    }
+}
+
+@keyframes moveTrain{
+    from{
+        left:-200px;
+    }
+    to{
+        left:110%;
+    }
+}
+
+@keyframes moveBus{
+    from{
+        right:-150px;
+    }
+    to{
+        right:110%;
+    }
+}
+
+/* TABLET */
 
 @media(max-width:1200px){
 
     .hero{
-        grid-template-columns:1fr;
+        flex-direction:column;
         text-align:center;
         gap:60px;
     }
 
     .left{
+        display:flex;
+        flex-direction:column;
         align-items:center;
     }
 
@@ -263,27 +424,19 @@
     .search-box{
         margin:auto;
     }
-
-    .right{
-        width:100%;
-    }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+/* MOBILE */
 
 @media(max-width:700px){
 
     nav{
         padding:18px;
         flex-direction:column;
-        gap:20px;
+        gap:18px;
     }
 
     .nav-links{
-        display:flex;
-        gap:15px;
         flex-wrap:wrap;
         justify-content:center;
     }
@@ -294,26 +447,23 @@
     }
 
     .left h1{
-        font-size:56px;
+        font-size:48px;
         line-height:1.1;
     }
 
     .left p{
         font-size:15px;
-        line-height:1.7;
     }
 
     .search-box{
         flex-direction:column;
         padding:18px;
-        border-radius:24px;
     }
 
     .search-box input,
     .search-box select,
     .search-box button{
         width:100%;
-        height:56px;
     }
 
     .buttons{
@@ -329,7 +479,6 @@
     .stats{
         flex-direction:column;
         align-items:center;
-        width:100%;
     }
 
     .stat-card{
@@ -338,7 +487,7 @@
     }
 
     .package-card{
-        border-radius:28px;
+        border-radius:26px;
     }
 
     .package-card img{
@@ -359,11 +508,6 @@
     }
 
     .price-box h1{
-        font-size:44px;
-    }
-
-    .book-btn{
-        height:56px;
-        border-radius:16px;
+        font-size:42px;
     }
 }
