@@ -1,248 +1,248 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-	<title> 💸💸Final Bill | TravelMate</title>
-
-	<link rel="icon" type="image/png" href="/images/logo.jpg">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="stylesheet" href="/css/bill.css">
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-
-<body class="dash-body bill-bg">
-
-	<aside class="sidebar">
-
-		<h2>
-			<i class="fa-solid fa-plane-departure"></i>
-			TravelMate
-		</h2>
-
-		<a href="/dashboard">
-			<i class="fa-solid fa-gauge"></i>
-			Dashboard
-		</a>
-
-		<a href="/tour">
-			<i class="fa-solid fa-map-location-dot"></i>
-			Book Tour
-		</a>
-
-		<a href="/history">
-			<i class="fa-solid fa-clock-rotate-left"></i>
-			History
-		</a>
-
-		<a href="/payment" class="pay-link">
-			<i class="fa-solid fa-credit-card"></i>
-			Pay Now
-		</a>
-
-		<a href="/logout" onclick="return confirm('Are you sure to logout?')">
-			<i class="fa-solid fa-right-from-bracket"></i>
-			Logout
-		</a>
-
-	</aside>
-
-	<main class="main-content">
-
-		<div class="bill-card">
-
-			<!-- PLACE IMAGE -->
-
-			<img th:if="${booking.place == 'Hyderabad'}"
-				src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=1200&q=80"
-				class="bill-img" alt="Hyderabad">
-
-			<img th:if="${booking.place == 'Goa'}"
-				src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
-				class="bill-img" alt="Goa">
-
-			<img th:if="${booking.place == 'Kerala'}"
-				src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80"
-				class="bill-img" alt="Kerala">
-
-			<img th:if="${booking.place == 'Manali'}"
-				src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80"
-				class="bill-img" alt="Manali">
-
-			<img th:if="${booking.place == 'Ooty'}"
-				src="https://images.unsplash.com/photo-1586016413664-864c0dd76f53?auto=format&fit=crop&w=1200&q=80"
-				class="bill-img" alt="Ooty">
-
-			<img th:if="${booking.place != 'Hyderabad'
-                  and booking.place != 'Goa'
-                  and booking.place != 'Kerala'
-                  and booking.place != 'Manali'
-                  and booking.place != 'Ooty'}"
-				src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
-				class="bill-img" alt="Travel">
-
-			<!-- CONTENT -->
-
-			<div class="bill-content">
-
-				<div class="bill-top-icon">
-					<i class="fa-solid fa-file-invoice-dollar"></i>
+	<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> 💸💸Final Bill | TravelMate</title>
+	
+		<link rel="icon" type="image/png" href="/images/logo.jpg">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<link rel="stylesheet" href="/css/bill.css">
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	</head>
+	
+	<body class="dash-body bill-bg">
+	
+		<aside class="sidebar">
+	
+			<h2>
+				<i class="fa-solid fa-plane-departure"></i>
+				TravelMate
+			</h2>
+	
+			<a href="/dashboard">
+				<i class="fa-solid fa-gauge"></i>
+				Dashboard
+			</a>
+	
+			<a href="/tour">
+				<i class="fa-solid fa-map-location-dot"></i>
+				Book Tour
+			</a>
+	
+			<a href="/history">
+				<i class="fa-solid fa-clock-rotate-left"></i>
+				History
+			</a>
+	
+			<a href="/payment" class="pay-link">
+				<i class="fa-solid fa-credit-card"></i>
+				Pay Now
+			</a>
+	
+			<a href="/logout" onclick="return confirm('Are you sure to logout?')">
+				<i class="fa-solid fa-right-from-bracket"></i>
+				Logout
+			</a>
+	
+		</aside>
+	
+		<main class="main-content">
+	
+			<div class="bill-card">
+	
+				<!-- PLACE IMAGE -->
+	
+				<img th:if="${booking.place == 'Hyderabad'}"
+					src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=1200&q=80"
+					class="bill-img" alt="Hyderabad">
+	
+				<img th:if="${booking.place == 'Goa'}"
+					src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+					class="bill-img" alt="Goa">
+	
+				<img th:if="${booking.place == 'Kerala'}"
+					src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80"
+					class="bill-img" alt="Kerala">
+	
+				<img th:if="${booking.place == 'Manali'}"
+					src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80"
+					class="bill-img" alt="Manali">
+	
+				<img th:if="${booking.place == 'Ooty'}"
+					src="https://images.unsplash.com/photo-1586016413664-864c0dd76f53?auto=format&fit=crop&w=1200&q=80"
+					class="bill-img" alt="Ooty">
+	
+				<img th:if="${booking.place != 'Hyderabad'
+	                  and booking.place != 'Goa'
+	                  and booking.place != 'Kerala'
+	                  and booking.place != 'Manali'
+	                  and booking.place != 'Ooty'}"
+					src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
+					class="bill-img" alt="Travel">
+	
+				<!-- CONTENT -->
+	
+				<div class="bill-content">
+	
+					<div class="bill-top-icon">
+						<i class="fa-solid fa-file-invoice-dollar"></i>
+					</div>
+	
+					<h1>Final Travel Bill</h1>
+	
+					<p class="page-subtitle">
+						Your trip booking summary
+					</p>
+	
+					<p class="success">
+						🎉 Booking Completed Successfully!
+					</p>
+	
+					<div class="bill-details">
+	
+						<div class="bill-row">
+							<span>
+								<i class="fa-solid fa-location-dot"></i>
+								Place
+							</span>
+	
+							<b th:text="${booking.place}">Hyderabad</b>
+						</div>
+	
+						<div class="bill-row">
+							<span>
+								<i class="fa-solid fa-bus"></i>
+								Vehicle
+							</span>
+	
+							<b th:text="${booking.vehicle}">Bus</b>
+						</div>
+	
+						<div class="bill-row">
+							<span>
+								<i class="fa-solid fa-hotel"></i>
+								Hotel
+							</span>
+	
+							<b th:text="${booking.hotel}">Deluxe</b>
+						</div>
+	
+						<div class="bill-row">
+							<span>
+								<i class="fa-solid fa-calendar-days"></i>
+								Days
+							</span>
+	
+							<b th:text="${booking.days}">7</b>
+						</div>
+	
+						<div class="bill-row">
+							<span>
+								<i class="fa-solid fa-indian-rupee-sign"></i>
+								Total Amount
+							</span>
+	
+							<b>
+								₹ <span th:text="${booking.totalAmount}">50400</span>
+							</b>
+						</div>
+	
+						<div class="bill-row discount">
+							<span>
+								<i class="fa-solid fa-gift"></i>
+								Game Discount
+							</span>
+	
+							<b>
+								- ₹ <span th:text="${booking.discount}">0</span>
+							</b>
+						</div>
+	
+					</div>
+	
+					<div class="final-total">
+	
+						<span>Final Amount</span>
+	
+						<h2>
+							₹ <span th:text="${booking.finalAmount}">50400</span>
+						</h2>
+	
+					</div>
+	
+					<div class="bill-actions">
+	
+						<a href="/dashboard" class="secondary-btn">
+							<i class="fa-solid fa-house"></i>
+							Dashboard
+						</a>
+	
+						<a href="/history" class="secondary-btn">
+							<i class="fa-solid fa-clock-rotate-left"></i>
+							View History
+						</a>
+	
+						<a href="/payment" class="primary-btn">
+							<i class="fa-solid fa-credit-card"></i>
+							Pay Now
+						</a>
+	
+						<a href="/bill/download" class="primary-btn">
+							<i class="fa-solid fa-download"></i>
+							Download PDF
+						</a>
+	
+					</div>
+	
 				</div>
-
-				<h1>Final Travel Bill</h1>
-
-				<p class="page-subtitle">
-					Your trip booking summary
-				</p>
-
-				<p class="success">
-					🎉 Booking Completed Successfully!
-				</p>
-
-				<div class="bill-details">
-
-					<div class="bill-row">
-						<span>
-							<i class="fa-solid fa-location-dot"></i>
-							Place
-						</span>
-
-						<b th:text="${booking.place}">Hyderabad</b>
-					</div>
-
-					<div class="bill-row">
-						<span>
-							<i class="fa-solid fa-bus"></i>
-							Vehicle
-						</span>
-
-						<b th:text="${booking.vehicle}">Bus</b>
-					</div>
-
-					<div class="bill-row">
-						<span>
-							<i class="fa-solid fa-hotel"></i>
-							Hotel
-						</span>
-
-						<b th:text="${booking.hotel}">Deluxe</b>
-					</div>
-
-					<div class="bill-row">
-						<span>
-							<i class="fa-solid fa-calendar-days"></i>
-							Days
-						</span>
-
-						<b th:text="${booking.days}">7</b>
-					</div>
-
-					<div class="bill-row">
-						<span>
-							<i class="fa-solid fa-indian-rupee-sign"></i>
-							Total Amount
-						</span>
-
-						<b>
-							₹ <span th:text="${booking.totalAmount}">50400</span>
-						</b>
-					</div>
-
-					<div class="bill-row discount">
-						<span>
-							<i class="fa-solid fa-gift"></i>
-							Game Discount
-						</span>
-
-						<b>
-							- ₹ <span th:text="${booking.discount}">0</span>
-						</b>
-					</div>
-
-				</div>
-
-				<div class="final-total">
-
-					<span>Final Amount</span>
-
-					<h2>
-						₹ <span th:text="${booking.finalAmount}">50400</span>
-					</h2>
-
-				</div>
-
-				<div class="bill-actions">
-
-					<a href="/dashboard" class="secondary-btn">
-						<i class="fa-solid fa-house"></i>
-						Dashboard
-					</a>
-
-					<a href="/history" class="secondary-btn">
-						<i class="fa-solid fa-clock-rotate-left"></i>
-						View History
-					</a>
-
-					<a href="/payment" class="primary-btn">
-						<i class="fa-solid fa-credit-card"></i>
-						Pay Now
-					</a>
-
-					<a href="/bill/download" class="primary-btn">
-						<i class="fa-solid fa-download"></i>
-						Download PDF
-					</a>
-
-				</div>
-
+	
 			</div>
-
+	
+		</main>
+		<div class="page-loader" id="pageLoader">
+			<div class="loader-card">
+				<img src="/images/logo.jpg" alt="TravelMate">
+				<div class="loader-plane">✈</div>
+				<h2>TravelMate</h2>
+				<p>Preparing your journey...</p>
+			</div>
 		</div>
-
-	</main>
-	<div class="page-loader" id="pageLoader">
-		<div class="loader-card">
-			<img src="/images/logo.jpg" alt="TravelMate">
-			<div class="loader-plane">✈</div>
-			<h2>TravelMate</h2>
-			<p>Preparing your journey...</p>
-		</div>
-	</div>
-
-	<script>
-		const loader = document.getElementById("pageLoader");
-
-		window.addEventListener("load", function () {
-			setTimeout(() => {
-				loader.classList.add("hide-loader");
-			}, 500);
-		});
-
-		document.querySelectorAll("a").forEach(link => {
-			link.addEventListener("click", function (e) {
-				const href = this.getAttribute("href");
-
-				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
-					return;
-				}
-
-				e.preventDefault();
-				loader.classList.remove("hide-loader");
-
+	
+		<script>
+			const loader = document.getElementById("pageLoader");
+	
+			window.addEventListener("load", function () {
 				setTimeout(() => {
-					window.location.href = href;
-				}, 900);
+					loader.classList.add("hide-loader");
+				}, 500);
 			});
-		});
-
-		document.querySelectorAll("form").forEach(form => {
-			form.addEventListener("submit", function () {
-				loader.classList.remove("hide-loader");
+	
+			document.querySelectorAll("a").forEach(link => {
+				link.addEventListener("click", function (e) {
+					const href = this.getAttribute("href");
+	
+					if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+						return;
+					}
+	
+					e.preventDefault();
+					loader.classList.remove("hide-loader");
+	
+					setTimeout(() => {
+						window.location.href = href;
+					}, 900);
+				});
 			});
-		});
-	</script>
-
-</body>
-
-</html>
+	
+			document.querySelectorAll("form").forEach(form => {
+				form.addEventListener("submit", function () {
+					loader.classList.remove("hide-loader");
+				});
+			});
+		</script>
+	
+	</body>
+	
+	</html>
