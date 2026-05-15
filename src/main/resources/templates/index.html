@@ -2,299 +2,351 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>🫠🫠TravelMate</title>
 
-	<link rel="icon" type="image/png" href="/images/logo.jpg">
+    <title>TravelMate</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/logo.jpg">
 
-	<link rel="stylesheet" href="/css/indexStyle.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+          href="/css/indexStyle.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
-	<!-- ========= BACKGROUND EFFECTS ========= -->
+<!-- ========= BACKGROUND EFFECTS ========= -->
 
-	<div class="bg-circle c1"></div>
-	<div class="bg-circle c2"></div>
-	<div class="bg-circle c3"></div>
+<div class="bg-circle c1"></div>
+<div class="bg-circle c2"></div>
+<div class="bg-circle c3"></div>
 
-	<!-- ========= VEHICLES ========= -->
+<!-- ========= VEHICLES ========= -->
 
-	<div class="vehicles">
+<div class="vehicles">
 
-		<img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="plane">
+    <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png"
+         class="plane">
 
-		<img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" class="train">
+    <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png"
+         class="train">
 
-		<img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" class="bus">
+    <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png"
+         class="bus">
 
-	</div>
+</div>
 
-	<!-- ========= NAVBAR ========= -->
+<!-- ========= NAVBAR ========= -->
 
-	<nav>
+<nav>
 
-		<div class="logo">
+    <div class="logo">
 
-			<img src="/images/logo.jpg">
+        <img src="/images/logo.jpg">
 
-			<span>TravelMate</span>
+        <span>TravelMate</span>
 
-		</div>
+    </div>
 
-		<div class="nav-links">
+    <div class="nav-links">
 
-			<a href="/">Home</a>
+        <a href="/">Home</a>
 
-			<a href="/login">Login</a>
+        <a href="/login">Login</a>
 
-			<a href="/register" class="register-btn">
-				Register
-			</a>
+        <a href="/register"
+           class="register-btn">
 
-		</div>
+            Register
 
-	</nav>
+        </a>
 
-	<!-- ========= HERO ========= -->
+    </div>
 
-	<section class="hero">
+</nav>
 
-		<!-- LEFT -->
+<!-- ========= HERO ========= -->
 
-		<div class="left">
+<section class="hero">
 
-			<span class="tag">
-				✈ Explore • Travel • Enjoy
-			</span>
+    <!-- LEFT -->
 
-			<h1>
-				Discover The World
-				With <span>TravelMate</span>
-			</h1>
+    <div class="left">
 
-			<p>
-				Book luxury hotels, flights, trains and buses
-				with premium discounts and unforgettable travel experiences.
-			</p>
+        <span class="tag">
+            ✈ Explore • Travel • Enjoy
+        </span>
 
-			<!-- SEARCH -->
+        <h1>
+            Discover The World
+            With <span>TravelMate</span>
+        </h1>
 
-			<form class="search-box" action="/packages" method="get">
+        <p>
+            Book luxury hotels, flights,
+            trains and buses with premium discounts
+            and unforgettable travel experiences.
+        </p>
 
-				<input type="text" placeholder="Search destination..." name="destination" required>
+        <!-- SEARCH -->
 
-				<input type="date" name="travelDate" class="premium-date" required>
+        <form class="search-box"
+              action="/packages"
+              method="get">
 
-				<select name="travelers">
+            <input type="text"
+                   placeholder="Search destination..."
+                   name="destination"
+                   required>
 
-					<option>1 Traveler</option>
-					<option>2 Travelers</option>
-					<option>3 Travelers</option>
-					<option>4 Travelers</option>
+            <input type="date"
+                   name="travelDate"
+                   class="premium-date"
+                   required>
 
-				</select>
+            <select name="travelers">
 
-				<button type="submit">
-					Search Trip 🔍
-				</button>
+                <option>1 Traveler</option>
+                <option>2 Travelers</option>
+                <option>3 Travelers</option>
+                <option>4 Travelers</option>
 
-			</form>
+            </select>
 
-			<!-- BUTTONS -->
+            <button type="submit">
+                Search Trip 🔍
+            </button>
 
-			<div class="buttons">
+        </form>
 
-				<a href="/register" class="start-btn" onclick="startTravelAnimation(event, '/register')">
+        <!-- BUTTONS -->
 
-					Get Started 🚀
+        <div class="buttons">
 
-				</a>
+            <a href="/register"
+               class="start-btn"
+               onclick="startTravelAnimation(event, '/register')">
 
-				<a href="/login" class="login-btn" onclick="startTravelAnimation(event, '/login')">
+                Get Started 🚀
 
-					Login
+            </a>
 
-				</a>
+            <a href="/login"
+               class="login-btn"
+               onclick="startTravelAnimation(event, '/login')">
 
-			</div>
+                Login
 
-			<!-- STATS -->
+            </a>
 
-			<div class="stats">
+        </div>
 
-				<div class="stat-card">
+        <!-- STATS -->
 
-					<h2>500+</h2>
-					<p>Luxury Hotels</p>
+        <div class="stats">
 
-				</div>
+            <div class="stat-card">
 
-				<div class="stat-card">
+                <h2>500+</h2>
+                <p>Luxury Hotels</p>
 
-					<h2>120+</h2>
-					<p>Flight Routes</p>
+            </div>
 
-				</div>
+            <div class="stat-card">
 
-				<div class="stat-card">
+                <h2>120+</h2>
+                <p>Flight Routes</p>
 
-					<h2>50K+</h2>
-					<p>Happy Travelers</p>
+            </div>
 
-				</div>
+            <div class="stat-card">
 
-			</div>
+                <h2>50K+</h2>
+                <p>Happy Travelers</p>
 
-		</div>
+            </div>
 
-		<!-- RIGHT -->
+        </div>
 
-		<div class="right">
+    </div>
 
-			<div class="package-card">
+    <!-- RIGHT -->
 
-				<div class="shine"></div>
+    <div class="right">
 
-				<span class="popular">
-					🔥 Popular Package
-				</span>
+        <div class="package-card">
 
-				<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+            <div class="shine"></div>
 
-				<div class="package-content">
+            <span class="popular">
+                🔥 Popular Package
+            </span>
 
-					<h2>Goa Beach Paradise</h2>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
 
-					<p>
-						Flight + Hotel + Food + Fun Activities
-					</p>
+            <div class="package-content">
 
-					<div class="price-box">
+                <h2>Goa Beach Paradise</h2>
 
-						<h1>₹9,999</h1>
+                <p>
+                    Flight + Hotel + Food + Fun Activities
+                </p>
 
-						<span>3 Days / 2 Nights</span>
+                <div class="price-box">
 
-					</div>
+                    <h1>₹9,999</h1>
 
-					<a href="/register" class="book-btn" onclick="startTravelAnimation(event, '/register')">
+                    <span>
+                        3 Days / 2 Nights
+                    </span>
 
-						Book Now ✨
+                </div>
 
-					</a>
+                <a href="/register"
+                   class="book-btn"
+                   onclick="startTravelAnimation(event, '/register')">
 
-				</div>
+                    Book Now ✨
 
-			</div>
+                </a>
 
-		</div>
+            </div>
 
-	</section>
+        </div>
 
-	<!-- ========= OVERLAY ========= -->
+    </div>
 
-	<div class="travel-overlay" id="travelOverlay">
+</section>
 
-		<div class="overlay-road"></div>
+<!-- ========= TRAVEL OVERLAY ========= -->
 
-		<img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="overlay-plane">
+<div class="travel-overlay"
+     id="travelOverlay">
 
-		<h1>Preparing Your Journey...</h1>
+    <div class="overlay-road"></div>
 
-	</div>
+    <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png"
+         class="overlay-plane">
 
-	<!-- ========= SCRIPT ========= -->
+    <h1>Preparing Your Journey...</h1>
 
-	<script>
+</div>
 
-		function startTravelAnimation(event, url) {
+<!-- ========= PAGE LOADER ========= -->
 
-			event.preventDefault();
+<div class="page-loader"
+     id="pageLoader">
 
-			const overlay =
-				document.getElementById("travelOverlay");
+    <div class="loader-card">
 
-			overlay.classList.add("active");
+        <img src="/images/logo.jpg"
+             alt="TravelMate">
 
-			setTimeout(() => {
+        <div class="loader-plane">
+            ✈
+        </div>
 
-				window.location.href = url;
+        <h2>TravelMate</h2>
 
-			}, 2500);
-		}
+        <p>
+            Preparing your journey...
+        </p>
 
-		window.addEventListener("pageshow", function () {
+    </div>
 
-			const overlay =
-				document.getElementById("travelOverlay");
+</div>
 
-			overlay.classList.remove("active");
-		});
+<!-- ========= SCRIPT ========= -->
 
-	</script>
+<script>
 
-	<div class="page-loader" id="pageLoader">
-		<div class="loader-card">
-			<img src="/images/logo.jpg" alt="TravelMate">
-			<div class="loader-plane">✈</div>
-			<h2>TravelMate</h2>
-			<p>Preparing your journey...</p>
-		</div>
-	</div>
+    function startTravelAnimation(event, url) {
 
-	<script>
-		const loader = document.getElementById("pageLoader");
+        event.preventDefault();
 
-		window.addEventListener("load", function () {
-			setTimeout(() => {
-				loader.classList.add("hide-loader");
-			}, 500);
-		});
+        const overlay =
+            document.getElementById("travelOverlay");
 
-		document.querySelectorAll("a").forEach(link => {
-			link.addEventListener("click", function (e) {
-				const href = this.getAttribute("href");
+        overlay.classList.add("active");
 
-				if (!href || href.startsWith("#") || href.startsWith("javascript")) {
-					return;
-				}
+        setTimeout(() => {
 
-				e.preventDefault();
-				loader.classList.remove("hide-loader");
+            window.location.href = url;
 
-				setTimeout(() => {
-					window.location.href = href;
-				}, 900);
-			});
-		});
+        }, 2500);
+    }
 
-		document.querySelectorAll("form").forEach(form => {
-			form.addEventListener("submit", function () {
-				loader.classList.remove("hide-loader");
-			});
-		});
-	</script>
-	
-	
-	<section class="hero">
-	  <nav class="navbar">
-	    ...
-	  </nav>
+    window.addEventListener("pageshow", function () {
 
-	  <div class="hero-content">
-	    <div class="hero-left">
-	      ...
-	    </div>
+        const overlay =
+            document.getElementById("travelOverlay");
 
-	    <div class="hero-right">
-	      ...
-	    </div>
-	  </div>
-	</section>
+        overlay.classList.remove("active");
+    });
+
+</script>
+
+<!-- ========= LOADER SCRIPT ========= -->
+
+<script>
+
+    const loader =
+        document.getElementById("pageLoader");
+
+    window.addEventListener("load", function () {
+
+        setTimeout(() => {
+
+            loader.classList.add("hide-loader");
+
+        }, 500);
+
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            const href =
+                this.getAttribute("href");
+
+            if (!href ||
+                href.startsWith("#") ||
+                href.startsWith("javascript")) {
+
+                return;
+            }
+
+            e.preventDefault();
+
+            loader.classList.remove("hide-loader");
+
+            setTimeout(() => {
+
+                window.location.href = href;
+
+            }, 900);
+
+        });
+
+    });
+
+    document.querySelectorAll("form").forEach(form => {
+
+        form.addEventListener("submit", function () {
+
+            loader.classList.remove("hide-loader");
+
+        });
+
+    });
+
+</script>
 
 </body>
 
