@@ -595,3 +595,65 @@ body{
     border:4px solid rgba(255,255,255,0.4);
     background:#fff;
 }
+
+.theme-toggle{
+    position:fixed;
+    right:25px;
+    top:25px;
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    z-index:999999;
+    box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+body.dark-mode{
+    background:#0f172a;
+    color:#fff;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .game-box,
+body.dark-mode .card,
+body.dark-mode .history-card,
+body.dark-mode .payment-card,
+body.dark-mode .success-card,
+body.dark-mode .package-card,
+body.dark-mode .tour-form-card,
+body.dark-mode .tour-info,
+body.dark-mode .admin-table-card,
+body.dark-mode .auth-card,
+body.dark-mode .login-card{
+    background:#111827;
+    color:#fff;
+    border-color:#334155;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode .subtitle,
+body.dark-mode .main-text{
+    color:#cbd5e1;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea{
+    background:#1e293b;
+    color:#fff;
+}
+
+body.dark-mode .info-card,
+body.dark-mode .summary-box,
+body.dark-mode .row,
+body.dark-mode .bill-row,
+body.dark-mode .payment-box{
+    background:#1e293b;
+    color:#fff;
+}
