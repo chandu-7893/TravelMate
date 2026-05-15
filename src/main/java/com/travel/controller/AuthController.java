@@ -17,32 +17,22 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class AuthController {
 
-    // ================= SERVICE =================
-
     private final UserService userService;
 
     public AuthController(UserService userService) {
         this.userService = userService;
     }
 
-    // ================= INDEX =================
-
     @GetMapping("/")
     public String index() {
         return "index";
     }
 
-    // ================= REGISTER PAGE =================
-
     @GetMapping("/register")
     public String registerPage(Model model) {
-
         model.addAttribute("user", new User());
-
         return "register";
     }
-
-    // ================= REGISTER =================
 
     @PostMapping("/register")
     public String register(
@@ -50,54 +40,30 @@ public class AuthController {
             @RequestParam("photoFile") MultipartFile photoFile,
             Model model) throws IOException {
 
-        // SAVE IMAGE
-
         if (!photoFile.isEmpty()) {
-
-            user.setImageName(
-                    photoFile.getOriginalFilename());
-
-            user.setImageData(
-                    photoFile.getBytes());
+            user.setImageName(photoFile.getOriginalFilename());
+            user.setImageData(photoFile.getBytes());
         }
 
-        // REGISTER USER
-
-        String result =
-                userService.register(user);
-
-        // ERROR
+        String result = userService.register(user);
 
         if (!result.equals("success")) {
-
-            model.addAttribute(
-                    "error",
-                    result);
-
+            model.addAttribute("error", result);
             return "register";
         }
 
-        // SUCCESS
-
-        model.addAttribute(
-                "success",
-                "Registration Successful");
-
+        model.addAttribute("success", "Registration Successful");
         return "login";
     }
-
-    // ================= LOGIN PAGE =================
 
     @GetMapping("/login")
     public String loginPage(HttpSession session) {
 
         if (session.getAttribute("username") != null) {
 
-            String role =
-                    (String) session.getAttribute("role");
+            String role = (String) session.getAttribute("role");
 
             if ("ADMIN".equalsIgnoreCase(role)) {
-
                 return "redirect:/admin";
             }
 
@@ -106,8 +72,6 @@ public class AuthController {
 
         return "login";
     }
-
-    // ================= LOGIN =================
 
     @PostMapping("/login")
     public String login(
@@ -116,101 +80,60 @@ public class AuthController {
             HttpSession session,
             Model model) {
 
-        boolean isValid =
-                userService.login(username, password);
+        boolean isValid = userService.login(username, password);
 
         if (isValid) {
 
-            User user =
-                    userService.getUserByUsername(username);
+            User user = userService.getUserByUsername(username);
 
-            // STORE SESSION DATA
-
-            session.setAttribute(
-                    "username",
-                    user.getUsername());
-
-            session.setAttribute(
-                    "email",
-                    user.getEmail());
-
-            session.setAttribute(
-                    "role",
-                    user.getRole());
-
-            // ADMIN REDIRECT
+            session.setAttribute("username", user.getUsername());
+            session.setAttribute("email", user.getEmail());
+            session.setAttribute("role", user.getRole());
 
             if ("ADMIN".equalsIgnoreCase(user.getRole())) {
-
                 return "redirect:/admin";
             }
-
-            // USER REDIRECT
 
             return "redirect:/dashboard";
         }
 
-        // INVALID LOGIN
-
-        model.addAttribute(
-                "error",
-                "Invalid Username or Password");
-
+        model.addAttribute("error", "Invalid Username or Password");
         return "login";
     }
 
-    // ================= DASHBOARD =================
-
     @GetMapping("/dashboard")
-    public String dashboard(
-            HttpSession session,
-            Model model) {
+    public String dashboard(HttpSession session, Model model) {
 
-        String username =
-                (String) session.getAttribute("username");
+        String username = (String) session.getAttribute("username");
+        String email = (String) session.getAttribute("email");
 
-        String email =
-                (String) session.getAttribute("email");
+        if (username == null) {
+            return "redirect:/login";
+        }
 
-        model.addAttribute(
-                "username",
-                username);
-
-        model.addAttribute(
-                "email",
-                email);
+        model.addAttribute("username", username);
+        model.addAttribute("email", email);
 
         return "dashboard";
     }
 
-    // ================= USER IMAGE =================
-
     @GetMapping("/user/image/{username}")
-    public ResponseEntity<byte[]> getUserImage(
-            @PathVariable String username) {
+    public ResponseEntity<byte[]> getUserImage(@PathVariable String username) {
 
-        User user =
-                userService.getUserByUsername(username);
+        User user = userService.getUserByUsername(username);
 
-        if (user == null || user.getImageData() == null) {
-
+        if (user == null || user.getImageData() == null || user.getImageData().length == 0) {
             return ResponseEntity.notFound().build();
         }
 
         return ResponseEntity.ok()
-
                 .contentType(MediaType.IMAGE_JPEG)
-
                 .body(user.getImageData());
     }
 
-    // ================= LOGOUT =================
-
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-
         session.invalidate();
-
         return "redirect:/login?logout";
     }
 }

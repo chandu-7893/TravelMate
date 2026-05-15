@@ -20,7 +20,7 @@
 
 <body>
 	<a href="/history">
-	    Booking History
+		Booking History
 	</a>
 	<div class="page-loader" id="pageLoader">
 		<div class="loader-card">
@@ -109,7 +109,8 @@
 
 						<!-- USER IMAGE -->
 
-						<img th:src="@{'/user/image/' + ${username}}" alt="profile">
+						<img th:src="@{'/user/image/' + ${username}}" onerror="this.src='/images/logo.jpg'"
+							alt="profile">
 
 						<!-- USER DETAILS -->
 
@@ -172,124 +173,124 @@
 
 			<section class="stats-section">
 
-			    <a href="/destinations" class="card clickable-card">
-			        <div class="icon blue">
-			            <i class="fa-solid fa-plane"></i>
-			        </div>
-			        <div>
-			            <h3>25+</h3>
-			            <p>Explore Destinations</p>
-			        </div>
-			    </a>
+				<a href="/destinations" class="card clickable-card">
+					<div class="icon blue">
+						<i class="fa-solid fa-plane"></i>
+					</div>
+					<div>
+						<h3>25+</h3>
+						<p>Explore Destinations</p>
+					</div>
+				</a>
 
 				<a href="/tour" class="card clickable-card">
 
-				    <div class="icon purple">
-				        <i class="fa-solid fa-ticket"></i>
-				    </div>
+					<div class="icon purple">
+						<i class="fa-solid fa-ticket"></i>
+					</div>
 
-				    <div class="card-details">
+					<div class="card-details">
 
-				        <h3>₹2500 Saved</h3>
+						<h3>₹2500 Saved</h3>
 
-				        <p class="main-text">
-				            Discounts You Claimed
-				        </p>
+						<p class="main-text">
+							Discounts You Claimed
+						</p>
 
-				        <div class="discount-history">
+						<div class="discount-history">
 
-				            <div class="discount-item">
-				                <span>Goa Package</span>
-				                <strong>- ₹1000</strong>
-				            </div>
+							<div class="discount-item">
+								<span>Goa Package</span>
+								<strong>- ₹1000</strong>
+							</div>
 
-				            <div class="discount-item">
-				                <span>Manali Trip</span>
-				                <strong>- ₹500</strong>
-				            </div>
+							<div class="discount-item">
+								<span>Manali Trip</span>
+								<strong>- ₹500</strong>
+							</div>
 
-				            <div class="discount-item">
-				                <span>Kerala Resort</span>
-				                <strong>- ₹1000</strong>
-				            </div>
+							<div class="discount-item">
+								<span>Kerala Resort</span>
+								<strong>- ₹1000</strong>
+							</div>
 
-				        </div>
+						</div>
 
-				    </div>
-
-				</a>	
-
-				<a href="/tour" class="card clickable-card">
-
-				    <div class="icon green">
-				        <i class="fa-solid fa-hotel"></i>
-				    </div>
-
-				    <div class="card-details">
-
-				        <h3>Premium Hotels</h3>
-
-				        <p class="main-text">
-				            Choose Hotel Package
-				        </p>
-
-				        <div class="hotel-list">
-
-				            <div class="hotel-item">
-				                <span>Luxury Resort</span>
-				                <strong>5★</strong>
-				            </div>
-
-				            <div class="hotel-item">
-				                <span>Beach Hotel</span>
-				                <strong>Sea View</strong>
-				            </div>
-
-				            <div class="hotel-item">
-				                <span>Mountain Stay</span>
-				                <strong>Hill View</strong>
-				            </div>
-
-				        </div>
-
-				    </div>
+					</div>
 
 				</a>
 
 				<a href="/tour" class="card clickable-card">
 
-				    <div class="icon orange">
-				        <i class="fa-solid fa-file"></i>
-				    </div>
+					<div class="icon green">
+						<i class="fa-solid fa-hotel"></i>
+					</div>
 
-				    <div class="card-details">
+					<div class="card-details">
 
-				        <h3>PDF Reports</h3>
+						<h3>Premium Hotels</h3>
 
-				        <p class="main-text">
-				            Download Invoice
-				        </p>
+						<p class="main-text">
+							Choose Hotel Package
+						</p>
 
-				        <div class="invoice-list">
+						<div class="hotel-list">
 
-				            <div class="invoice-item">
-				                <span>Goa Booking</span>
-				                <strong>PDF</strong>
-				            </div>
+							<div class="hotel-item">
+								<span>Luxury Resort</span>
+								<strong>5★</strong>
+							</div>
 
-				            <div class="invoice-item">
-				                <span>Kerala Package</span>
-				                <strong>Invoice</strong>
-				            </div>
+							<div class="hotel-item">
+								<span>Beach Hotel</span>
+								<strong>Sea View</strong>
+							</div>
 
-				            <div class="invoice-item">
-				                <span>Manali Resort</span>
-				                <strong>Receipt</strong>
-				            </div>
+							<div class="hotel-item">
+								<span>Mountain Stay</span>
+								<strong>Hill View</strong>
+							</div>
 
-				        </div>
+						</div>
 
-				    </div>
+					</div>
+
+				</a>
+
+				<a href="/tour" class="card clickable-card">
+
+					<div class="icon orange">
+						<i class="fa-solid fa-file"></i>
+					</div>
+
+					<div class="card-details">
+
+						<h3>PDF Reports</h3>
+
+						<p class="main-text">
+							Download Invoice
+						</p>
+
+						<div class="invoice-list">
+
+							<div class="invoice-item">
+								<span>Goa Booking</span>
+								<strong>PDF</strong>
+							</div>
+
+							<div class="invoice-item">
+								<span>Kerala Package</span>
+								<strong>Invoice</strong>
+							</div>
+
+							<div class="invoice-item">
+								<span>Manali Resort</span>
+								<strong>Receipt</strong>
+							</div>
+
+						</div>
+
+					</div>
 
 				</a>
 
